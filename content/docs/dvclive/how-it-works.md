@@ -200,5 +200,5 @@ pipeline. You can optionally drop `Live.log_artifact()` from your code.
 [dependencies]: /user-guide/pipelines/defining-pipelines#simple-dependencies
 [pipeline]: /start/experiments/experiment-pipelines
 [generates]: /dvclive/live/make_dvcyaml
-[add DVCLive to a pipeline]: /start/data-management/metrics-parameters-plots
+[add DVCLive to a pipeline]: /start/data-pipelines/metrics-parameters-plots
 [add a pipeline to DVCLive code]: /start/experiments/experiment-pipelines

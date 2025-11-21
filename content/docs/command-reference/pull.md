@@ -196,7 +196,8 @@ $ dvc pull train
 > this example if you tried the previous ones.
 
 Our [pipeline](/command-reference/dag) has been set up with these
-[stages](/command-reference/run): `prepare`, `featurize`, `train`, `evaluate`.
+[stages](/command-reference/stage/add): `prepare`, `featurize`, `train`,
+`evaluate`.
 
 Imagine the `dvc remote` has been modified such that the data in some of these
 stages should be updated in the <abbr>workspace</abbr>.

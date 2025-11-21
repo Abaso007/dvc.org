@@ -137,7 +137,7 @@ Details on the command options used above:
   [parameters](/command-reference/params). Any stage can depend on parameter
   values from a parameters file (`params.yaml` by default). We'll discuss those
   more in the
-  [Metrics, Parameters, and Plots](/start/data-management/metrics-parameters-plots)
+  [Metrics, Parameters, and Plots](/start/data-pipelines/metrics-parameters-plots)
   page.
 
 ```yaml

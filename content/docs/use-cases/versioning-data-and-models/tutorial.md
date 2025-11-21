@@ -348,7 +348,7 @@ Here's where the [pipelines](/command-reference/dag) feature of DVC comes in
 handy. We touched on it briefly when we described `dvc stage add` and
 `dvc repro`. The next step would be splitting the script into two parts and
 utilizing pipelines. See
-[Get Started: Data Pipelines](/start/data-management/data-pipelines) to get
+[Get Started: Data Pipelines](/start/data-pipelines/data-pipelines) to get
 hands-on experience with pipelines, and try to apply it here. Don't hesitate to
 join our [community](https://dvc.org/chat) and ask any questions!
 

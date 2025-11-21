@@ -14,7 +14,7 @@ raw data, source code, data artifacts, etc. and a few
 version of the project is visible at a time.
 
 [data versioning]: /start/data-management/data-versioning
-[pipelining]: /start/data-management/data-pipelines
+[pipelining]: /start/data-pipelines/data-pipelines
 
 <admon type="info">
 

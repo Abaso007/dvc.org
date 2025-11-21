@@ -150,8 +150,8 @@ $ dvc push data.zip.dvc
 
 Demonstrating the `--with-deps` option requires a larger example. First, assume
 a [pipeline](/command-reference/dag) has been set up with these
-[stages](/command-reference/run): `clean-posts`, `featurize`, `test-posts`,
-`matrix-train`
+[stages](/command-reference/stage/add): `clean-posts`, `featurize`,
+`test-posts`, `matrix-train`
 
 Imagine the <abbr>project</abbr> has been modified such that the
 <abbr>outputs</abbr> of some of these stages need to be uploaded to [remote
