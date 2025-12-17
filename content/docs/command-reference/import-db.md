@@ -11,7 +11,7 @@ usage: dvc import-db [-h] [-q | -v]
 ## Description
 
 With `import-db`, you can snapshot your ETL/database to a file to use in your
-data pipelines. This commands supports importing your table or a SQL query
+data pipelines. This command supports importing your table or a SQL query
 results into different file formats. To do so, you have to set connection
 strings to connect to a database, which can be setup in config as `db.<name>`.
 Check [Database Connections](#database-connections) for more information.
