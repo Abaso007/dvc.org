@@ -98,18 +98,18 @@ The simplest way to run tests:
 
 ```cli
 $ cd dvc
-$ python -m tests
+$ pytest
 ```
 
-This uses `pytest` to run the full test suite and report the result. At the very
-end you should see something like this:
+This uses [`pytest`](https://docs.pytest.org/en/stable/) to run the full test
+suite and report the result. At the very end you should see something like this:
 
 ```cli
-$ python -m tests
+$ pytest
 
 ...
 
-============= 434 passed, 6 skipped, 8 warnings in 131.43 seconds ==============
+===== 3044 passed, 11 skipped, 2 xpassed, 5 warnings in 201.70s (0:03:21) ======
 ```
 
 Otherwise, for each failed test you should see the following output, to help you
@@ -127,25 +127,31 @@ ____________________________ TestProgressAware.test ____________________________
 ======== 1 failed, 433 passed, 6 skipped, 8 warnings in 137.49 seconds =========
 ```
 
+To speed up test execution, you can run tests in parallel using `pytest-xdist`:
+
+```cli
+$ pytest -nauto
+```
+
 You can pass any additional arguments to the script that will override the
 default `pytest`'s scope:
 
 To run a single test case:
 
 ```cli
-$ python -m tests tests/func/test_metrics.py::TestCachedMetrics
+$ pytest tests/func/test_metrics.py::TestCachedMetrics
 ```
 
 To run a single test function:
 
 ```cli
-$ python -m tests tests/unit/utils/test_fs.py::test_get_inode
+$ pytest tests/unit/utils/test_fs.py::test_get_inode
 ```
 
 To pass additional arguments:
 
 ```cli
-$ python -m tests --pdb
+$ pytest --pdb
 ```
 
 ## Code style guidelines (Python)
