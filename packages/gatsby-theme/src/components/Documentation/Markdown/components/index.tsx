@@ -5,15 +5,19 @@ import { DownloadLink, NoPreRedirectLink } from '../../../Link'
 import Admonition from '../Admonition'
 import { Tab, Toggle } from '../ToggleProvider'
 
-import { Abbr, Card, Cards, Details } from './default'
+import { Abbr, Card, Cards, Details, InfoCard } from './default'
 
 export const getComponents = (slugger: Slugger) => ({
   a: NoPreRedirectLink,
   abbr: Abbr,
   card: Card,
   cards: Cards,
-  details: ({ id, children }: PropsWithChildren<{ id: string }>) => (
-    <Details slugger={slugger} id={id}>
+  details: ({
+    id,
+    children,
+    color
+  }: PropsWithChildren<{ id: string; color?: string }>) => (
+    <Details slugger={slugger} id={id} color={color}>
       {children}
     </Details>
   ),
@@ -21,5 +25,6 @@ export const getComponents = (slugger: Slugger) => ({
   tab: Tab,
   admon: Admonition,
   admonition: Admonition,
-  downloadlink: DownloadLink
+  downloadlink: DownloadLink,
+  infocard: InfoCard
 })

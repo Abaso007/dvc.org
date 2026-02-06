@@ -18,8 +18,8 @@ import Tooltip from '../Tooltip'
 type RemarkNode = { props: { children: RemarkNode[] } } | string
 
 export const Details: React.FC<
-  PropsWithChildren<{ slugger: Slugger; id: string }>
-> = ({ slugger, children, id }) => {
+  PropsWithChildren<{ slugger: Slugger; id: string; color?: string }>
+> = ({ slugger, children, id, color }) => {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
@@ -64,12 +64,14 @@ export const Details: React.FC<
     }
   }, [id, location.hash])
 
+  const colorClass = color ? `collapsible-${color}` : ''
+
   /*
      Collapsible's trigger type wants ReactElement, so we force a TS cast from
      ReactNode here.
    */
   return (
-    <div id={id} className="collapsableDiv">
+    <div id={id} className={`collapsableDiv ${colorClass}`.trim()}>
       <Link
         href={`#${id}`}
         aria-label={triggerChildren.toString()}
@@ -111,6 +113,36 @@ export const InnerCard: React.FC<
   ) : (
     <div className={className}>{children}</div>
   )
+
+export const InfoCard: React.FC<
+  PropsWithChildren<{
+    title?: string
+    logo?: string
+    href?: string
+    cta?: string
+  }>
+> = ({ children, title, logo, href, cta = 'Explore' }) => {
+  return (
+    <div className={styles.infoCardWrapper}>
+      <div className={styles.infoCardHeader}>
+        {logo && (
+          <img
+            src={logo}
+            alt={title || 'Logo'}
+            className={styles.infoCardLogo}
+          />
+        )}
+        {title && <h3 className={styles.infoCardTitle}>{title}</h3>}
+      </div>
+      <div className={styles.infoCardContent}>{children}</div>
+      {href && (
+        <Link href={href} className={styles.infoCardLink}>
+          {cta}
+        </Link>
+      )}
+    </div>
+  )
+}
 
 export const Card: React.FC<
   PropsWithChildren<{
