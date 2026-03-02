@@ -22,7 +22,7 @@ instead, and not as a separate system.
 
 [experiment management]: /start/experiments
 [codified with dvc]: /user-guide/project-structure/dvcyaml-files
-[versioning everything]: /use-cases/versioning-data-and-models
+[versioning everything]: /example-scenarios/versioning-data-and-models
 
 ![](/img/vscode-live.gif) \_DVC Experiments are organized along project versions
 (Git commits, branches, tags, etc.), and can be compared in the terminal, the
@@ -75,8 +75,8 @@ repetitive data transfers or having to retrain models on-the-fly.
 | **Execution**     | `dvc exp run`        | Code API (usually Python)     |
 | **Collaboration** | Distributed          | Centralized                   |
 
-[data versioning]: /use-cases/versioning-data-and-models
-[ide]: https://marketplace.visualstudio.com/items?itemName=Iterative.dvc
+[data versioning]: /example-scenarios/versioning-data-and-models
+[ide]: https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc
 [terminal]: /command-reference
 
 > 💡 Note that other experiment tracking tools can be complementary to DVC, for

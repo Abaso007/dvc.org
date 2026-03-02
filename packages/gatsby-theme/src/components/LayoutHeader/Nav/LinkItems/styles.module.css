@@ -5,6 +5,11 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
+  @media screen(smMax) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .linkItem {
@@ -15,32 +20,11 @@
     margin: 0;
   }
 
-  @media screen(xl) {
-    &:last-child {
-      display: none;
-    }
-  }
-
-  &:nth-child(1),
-  &:nth-child(4) {
-    display: none;
-
-    @media screen(xl) {
-      display: initial;
-    }
-  }
-
-  @media screen(mdMax) {
+  @media screen(smMax) {
     margin-left: 0;
 
-    &:nth-child(6) {
-      display: none;
-    }
-  }
-
-  @media screen(smMax) {
-    &:nth-child(5) {
-      display: none;
+    & + & {
+      border-top: 1px solid #e5e7eb;
     }
   }
 }
@@ -67,23 +51,8 @@
   &.open {
     opacity: 0.7;
 
-    .arrowDownIcon {
-      display: none;
-    }
-
-    .arrowUpIcon {
-      display: inline-block;
-    }
-  }
-
-  &.other {
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 20px;
-
-    .arrowUpIcon,
-    .arrowDownIcon {
-      display: none;
+    .linkIcon {
+      transform: rotate(180deg);
     }
   }
 
@@ -91,10 +60,7 @@
     width: 16px;
     height: 16px;
     margin-left: 4px;
-  }
-
-  .arrowUpIcon {
-    display: none;
+    transition: transform 0.2s ease-in-out;
   }
 
   @media screen(xl) {
@@ -105,6 +71,22 @@
     .linkIcon {
       width: 18px;
       height: 18px;
+    }
+  }
+
+  @media screen(smMax) {
+    font-size: inherit;
+    line-height: inherit;
+    width: calc(100% + 32px);
+    padding: 18px 16px;
+    margin: 0 -16px;
+    align-items: center;
+    transition: background-color 0.2s ease-in;
+
+    &:hover,
+    &:active {
+      opacity: 1;
+      background-color: rgb(15 22 36 / 5%);
     }
   }
 }

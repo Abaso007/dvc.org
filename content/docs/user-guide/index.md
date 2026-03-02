@@ -53,7 +53,7 @@ this set of principles:
   <admon type="info">
 
   DVC can also work stand-alone, but without
-  [versioning](/use-cases/versioning-data-and-models) capabilities.
+  [versioning](/example-scenarios/versioning-data-and-models) capabilities.
 
   </admon>
 
@@ -74,7 +74,7 @@ this set of principles:
 
 [free]: https://github.com/treeverse/dvc/blob/main/LICENSE
 [vs code extension]:
-  https://marketplace.visualstudio.com/items?itemName=Iterative.dvc
+  https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc
 [python api]: /api-reference
 [command line]: /command-reference
 
@@ -95,7 +95,7 @@ versions of data, data pipelines, and experiments.
 <admon type="info">
 
 DVC is not fundamentally bound to Git, and can work without it (except
-[versioning-related](/use-cases/versioning-data-and-models) features).
+[versioning-related](/example-scenarios/versioning-data-and-models) features).
 
 </admon>
 

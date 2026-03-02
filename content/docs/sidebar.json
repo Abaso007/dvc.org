@@ -17,7 +17,7 @@
       "linux",
       {
         "label": "Visual Studio Code",
-        "url": "https://marketplace.visualstudio.com/items?itemName=Iterative.dvc",
+        "url": "https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc",
         "type": "external"
       },
       {
@@ -65,8 +65,8 @@
     ]
   },
   {
-    "slug": "use-cases",
-    "source": "use-cases/index.md",
+    "slug": "example-scenarios",
+    "source": "example-scenarios/index.md",
     "children": [
       {
         "slug": "versioning-data-and-models",
@@ -667,7 +667,7 @@
   },
   {
     "label": "VS Code Extension",
-    "url": "https://marketplace.visualstudio.com/items?itemName=Iterative.dvc",
+    "url": "https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc",
     "type": "external",
     "icon": "vscode"
   },

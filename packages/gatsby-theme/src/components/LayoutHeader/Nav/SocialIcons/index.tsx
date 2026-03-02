@@ -1,31 +1,31 @@
 import { externalUrls, mainSiteUrls } from '../../../../../consts'
-import SocialIcon, { ISocialIconProps } from '../../../SocialIcon'
+import Link from '../../../Link'
+import { ReactComponent as DiscordIcon } from '../../../SocialIcon/discord.svg'
+import { ReactComponent as GithubIcon } from '../../../SocialIcon/github.svg'
 
 import * as styles from './styles.module.css'
 
-const socialIconData: Array<ISocialIconProps> = [
+const socialIconData = [
   {
-    site: 'github',
-    label: 'Go to DVC Github page',
-    url: externalUrls.dvcRepo
+    label: 'GitHub',
+    url: externalUrls.dvcRepo,
+    Icon: GithubIcon
   },
   {
-    site: 'discord',
-    label: 'Go to DVC Discord page',
-    url: mainSiteUrls.chat
+    label: 'Discord',
+    url: mainSiteUrls.chat,
+    Icon: DiscordIcon
   }
 ]
 
 const SocialIcons: React.FC = () => (
   <ul className={styles.socialIcons}>
-    {socialIconData.map(({ site, label, url }, i) => (
-      <li key={i}>
-        <SocialIcon
-          site={site}
-          label={label}
-          url={url}
-          className={styles.socialIcon}
-        />
+    {socialIconData.map(({ label, url, Icon }, i) => (
+      <li key={i} className={styles.socialItem}>
+        <Link href={url} className={styles.socialLink} aria-label={label}>
+          <Icon className={styles.socialLinkIcon} aria-hidden="true" />
+          <span className={styles.socialLabel}>{label}</span>
+        </Link>
       </li>
     ))}
   </ul>

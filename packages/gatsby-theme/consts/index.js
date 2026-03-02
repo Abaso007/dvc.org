@@ -16,14 +16,16 @@ const externalUrls = {
   course: 'https://learn.dvc.org/',
   mail: 'mailto:support@dvc.org',
   youtube: 'https://www.youtube.com/channel/UC37rp97Go-xIX3aNFVHhXfQ',
-  privacyPolicy: 'https://lakefs.io/privacy-policy'
+  privacyPolicy: 'https://lakefs.io/privacy-policy/',
+  lakefsHome: 'https://lakefs.io',
+  lakefsAboutUs: 'https://lakefs.io/about-us/'
 }
 const docUrls = {
   home: '/',
   getStarted: `/start`,
   commandReference: `/command-reference/`,
   apiReference: `/api-reference/`,
-  useCases: `/use-cases`
+  exampleScenarios: `/example-scenarios`
 }
 
 const consts = {

@@ -72,7 +72,7 @@ $ git init
 <admon type="info">
 
 This directory name is used in our
-[example-get-started](https://github.com/iterative/example-get-started) repo.
+[example-get-started](https://github.com/treeverse/example-get-started) repo.
 
 </admon>
 
@@ -108,7 +108,7 @@ directory, let's pick a piece of data to work with. We'll use an example
 running:
 
 ```cli
-$ dvc get https://github.com/iterative/dataset-registry \
+$ dvc get https://github.com/treeverse/dataset-registry \
           get-started/data.xml -o data/data.xml
 ```
 
@@ -118,7 +118,7 @@ We used `dvc get` above to show how DVC can turn any Git repo into a "[data
 registry]". `dvc get` can download any file or directory tracked in a <abbr>DVC
 repository</abbr>.
 
-[data registry]: /use-cases/data-registry
+[data registry]: /example-scenarios/data-registry
 
 </admon>
 
@@ -376,8 +376,8 @@ alongside it.
 
 ## Following This Guide
 
-To help you understand and use DVC better, consider the following three
-use-cases: **data pipelines**, **experiment tracking** and **model management**.
+To help you understand and use DVC better, consider the following three example
+scenarios: **data pipelines**, **experiment tracking** and **model management**.
 You may pick any to start learning about how DVC helps you "solve" that
 scenario!
 

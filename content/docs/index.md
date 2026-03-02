@@ -4,7 +4,7 @@
 used as a [Python library].
 
 [visual studio code]:
-  https://marketplace.visualstudio.com/items?itemName=Iterative.dvc
+  https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc
 [system terminal]: /install
 [python library]: /api-reference
 
@@ -18,7 +18,7 @@ used as a [Python library].
     Learn more details about the principles, features, and mechanisms of DVC.
   </card>
 
-  <card href="/use-cases" heading="Use Cases">
+  <card href="/example-scenarios" heading="Example Scenarios">
     Non-exhaustive list of scenarios DVC can help with
   </card>
 

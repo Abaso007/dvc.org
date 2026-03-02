@@ -1,7 +1,6 @@
 import cn from 'classnames'
 import { PropsWithChildren } from 'react'
 
-import menuData from '@dvcorg/gatsby-theme/src/data/menu'
 import { logEvent } from '@dvcorg/gatsby-theme/src/utils/front/plausible'
 
 import Link from '../../../Link'
@@ -17,51 +16,40 @@ export const BasePopup: React.FC<
   PropsWithChildren<{
     className?: string
     isVisible: boolean
+    id?: string
   }>
-> = ({ children, isVisible, className }) => (
-  <div className={cn(styles.popup, isVisible && styles.visible, className)}>
+> = ({ children, isVisible, className, id }) => (
+  <ul
+    id={id}
+    className={cn(styles.popup, isVisible && styles.visible, className)}
+  >
     {children}
-  </div>
+  </ul>
 )
 
-export const CommunityPopup: React.FC<IPopupProps> = ({
-  isVisible,
-  closePopup
-}) => (
-  <BasePopup className={styles.communityPopup} isVisible={isVisible}>
-    {menuData.community.map(({ text, title, href }, i) => (
-      <Link
-        className={styles.link}
-        href={href}
-        key={i}
-        onClick={(): void => {
-          logEvent('Nav', { Item: 'community' })
-          closePopup()
-        }}
-      >
-        {text || title}
-      </Link>
+export const NavPopup: React.FC<
+  IPopupProps & {
+    id?: string
+    items: Array<{ label: string; href: string }>
+    analyticsKey: string
+    onNavigate?: () => void
+  }
+> = ({ id, items, analyticsKey, isVisible, closePopup, onNavigate }) => (
+  <BasePopup id={id} className={styles.navPopup} isVisible={isVisible}>
+    {items.map(({ label, href }, i) => (
+      <li key={i}>
+        <Link
+          className={styles.link}
+          href={href}
+          onClick={(): void => {
+            logEvent('Nav', { Item: analyticsKey })
+            closePopup()
+            onNavigate?.()
+          }}
+        >
+          {label}
+        </Link>
+      </li>
     ))}
-  </BasePopup>
-)
-
-export const OtherPopup: React.FC<IPopupProps> = ({
-  isVisible,
-  closePopup
-}) => (
-  <BasePopup className={styles.otherPopup} isVisible={isVisible}>
-    {menuData.nav.map(
-      ({ text, href }, i) =>
-        href && (
-          <Link
-            className={styles.link}
-            href={href}
-            key={i}
-            onClick={closePopup}
-          >
-            {text as React.ReactNode}
-          </Link>
-        )
-    )}
   </BasePopup>
 )

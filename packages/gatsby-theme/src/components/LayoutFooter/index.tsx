@@ -5,13 +5,11 @@ import {
   mainSiteUrls,
   docUrls
 } from '@dvcorg/gatsby-theme/consts'
-import SocialIcon, {
-  ISocialIcon
-} from '@dvcorg/gatsby-theme/src/components/SocialIcon'
 
 import { ReactComponent as LogoSVG } from '../../../../../static/img/dvc_by_lakefs_white.svg'
 import LayoutWidthContainer from '../LayoutWidthContainer'
 import Link from '../Link'
+import { ReactComponent as BlogSVG } from '../SocialIcon/blog.svg'
 import { ReactComponent as DiscordSVG } from '../SocialIcon/discord.svg'
 import { ReactComponent as GithubSVG } from '../SocialIcon/github.svg'
 import { ReactComponent as TwitterSVG } from '../SocialIcon/twitter.svg'
@@ -20,7 +18,9 @@ import * as styles from './styles.module.css'
 
 declare global {
   interface Window {
+    // https://usercentrics.com/docs/web/features/api/control-ui/
     __ucCmp?: {
+      showFirstLayer?: () => void
       showSecondLayer?: () => void
     }
   }
@@ -46,20 +46,14 @@ interface IFooterListData {
 
 const footerListsData: Array<IFooterListData> = [
   {
-    header: 'Product',
+    header: 'Data Version Control',
     links: [
       {
-        href: mainSiteUrls.home,
-        text: 'Overview'
+        href: externalUrls.lakefsHome,
+        text: 'For AI/ML & Data Infrastructure'
       },
-      {
-        href: docUrls.useCases,
-        text: 'Use Cases'
-      },
-      {
-        href: mainSiteUrls.blog,
-        text: 'Blog'
-      }
+      { href: docUrls.home, text: 'For Local Workflows (Git Extension)' },
+      { href: externalUrls.lakefsAboutUs, text: 'About lakeFS' }
     ]
   },
   {
@@ -74,6 +68,11 @@ const footerListsData: Array<IFooterListData> = [
   {
     header: 'Community',
     links: [
+      {
+        href: mainSiteUrls.blog,
+        text: 'Blog',
+        icon: <BlogSVG className={styles.icon} />
+      },
       {
         href: externalUrls.twitter,
         text: 'Twitter',
@@ -109,31 +108,18 @@ const footerListsData: Array<IFooterListData> = [
             console.log('Privacy Settings not available')
           }
         }
+      },
+      {
+        text: 'Do not share or sell my personal information',
+        onClick: function () {
+          if (window.__ucCmp?.showFirstLayer) {
+            window.__ucCmp.showFirstLayer()
+          } else {
+            console.log('Privacy Settings not available')
+          }
+        }
       }
     ]
-  }
-]
-
-const footerSocialIconsData: Array<ISocialIcon> = [
-  {
-    site: 'github',
-    label: 'DVC Github Page',
-    url: externalUrls.dvcRepo
-  },
-  {
-    site: 'twitter',
-    label: 'DVC Twitter',
-    url: externalUrls.twitter
-  },
-  {
-    site: 'youtube',
-    label: 'DVC.org Youtube Channel',
-    url: externalUrls.youtube
-  },
-  {
-    site: 'discord',
-    label: 'DVC Discord chat',
-    url: mainSiteUrls.chat
   }
 ]
 
@@ -174,20 +160,6 @@ const FooterLists: React.FC = () => (
   </div>
 )
 
-const FooterSocialIcons: React.FC = () => (
-  <div className={styles.socialIcons}>
-    {footerSocialIconsData.map(({ site, label, url }, index) => (
-      <SocialIcon
-        key={index}
-        site={site}
-        label={label}
-        url={url}
-        className={cn(styles.link, styles.socialIcon)}
-      />
-    ))}
-  </div>
-)
-
 const LayoutFooter: React.FC = () => (
   <footer className={styles.wrapper}>
     <LayoutWidthContainer className={cn(styles.container)} wide>
@@ -199,10 +171,6 @@ const LayoutFooter: React.FC = () => (
         </Link>
       </div>
       <FooterLists />
-
-      <div className="mx-auto mt-6">
-        <FooterSocialIcons />
-      </div>
     </LayoutWidthContainer>
   </footer>
 )

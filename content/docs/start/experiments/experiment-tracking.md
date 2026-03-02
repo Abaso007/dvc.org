@@ -173,7 +173,7 @@ updated inside the output of the cell:
 <tab title="VSCode Extension">
 
 The
-[DVC Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Iterative.dvc)
+[DVC Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc)
 will also display all the data logged by DVCLive:
 
 ![VS Code Report](/img/dvclive-vscode-monitoring.gif)
@@ -226,7 +226,7 @@ $ dvc plots diff $(dvc exp list --name-only)
 <tab title="VSCode Extension">
 
 Inside the
-[DVC Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Iterative.dvc),
+[DVC Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=lakeFS.lakefs-dvc),
 you can compare and visualize results using the
 [`Experiments`](https://github.com/treeverse/vscode-dvc/blob/main/extension/resources/walkthrough/experiments-table.md)
 and
