@@ -8,8 +8,19 @@ const getTooltipHTMLProcessor = async () => {
       'remark-preset-lint-recommended'
     )
     const { default: remarkHtml } = await import('remark-html')
+    const { default: simpleLinkerTerms } = await import(
+      '../../content/linked-terms.js'
+    )
+    const { default: dvcLinker } = await import(
+      '../plugins/gatsby-remark-dvc-linker/index.js'
+    )
 
-    tooltipHTMLProcessor = remark().use(recommended).use(remarkHtml)
+    tooltipHTMLProcessor = remark()
+      .use(recommended)
+      .use(() => async tree => {
+        await dvcLinker({ markdownAST: tree }, { simpleLinkerTerms })
+      })
+      .use(remarkHtml)
   }
   return tooltipHTMLProcessor
 }
