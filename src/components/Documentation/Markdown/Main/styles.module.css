@@ -23,13 +23,15 @@
     font-size: 18px;
 
     a[target='_blank']::after {
-      display: inline-block;
+      display: inline;
       position: relative;
       top: 0.5px;
-      width: 12px;
-      height: 12px;
-      margin-left: 2px;
-      content: url('../../../../images/external-link.svg');
+      content: '\00a0';
+      padding-right: 12px;
+      background-image: url('../../../../images/external-link.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 12px 12px;
       opacity: 0.6;
       transition: opacity 0.15s ease;
     }
