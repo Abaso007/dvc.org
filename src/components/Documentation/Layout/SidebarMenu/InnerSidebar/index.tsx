@@ -7,11 +7,13 @@ import * as styles from '../styles.module.css'
 
 export interface IInnerSidebarProps {
   activePaths?: string[]
+  currentPath: string
   onClick: SidebarItemClickHandler
 }
 
 const SidebarSections: React.FC<IInnerSidebarProps> = ({
   activePaths,
+  currentPath,
   onClick
 }) => {
   return (
@@ -20,6 +22,7 @@ const SidebarSections: React.FC<IInnerSidebarProps> = ({
         {structure.map(item => (
           <SidebarMenuItem
             key={item.path}
+            currentPath={currentPath}
             activePaths={
               activePaths && includes(activePaths, item.path)
                 ? activePaths

@@ -12,6 +12,7 @@ import { ReactComponent as ExternalLinkIcon } from './external-link-icon.svg'
 
 interface ISidebarMenuItemProps {
   children?: Array<{ label: string; path: string; source: boolean | string }>
+  currentPath: string
   label: string
   path: string
   source: boolean | string
@@ -24,6 +25,7 @@ interface ISidebarMenuItemProps {
 
 const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
   children,
+  currentPath,
   label,
   path,
   activePaths,
@@ -40,6 +42,7 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
     setIsExpanded(activePaths && includes(activePaths, path))
   }, [activePaths, path])
 
+  const isCurrent = currentPath === path
   const isRootParent =
     activePaths && activePaths.length > 1 && activePaths[0] === path
 
@@ -69,26 +72,35 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
   const className = cn(
     styles.sectionLink,
     isExpanded && styles.active,
+    isCurrent && styles.current,
     isRootParent && 'docSearch-lvl0',
     'link-with-focus',
-    // style ? styles[style] : styles.sidebarDefault,
-    style && styles[style],
-    // isLeafItem && styles.leafItem,
-    // Limit the default bullet to items with no special icon
-    // icon ? undefined : styles.withDefaultBullet
-    icon && undefined
+    style && styles[style]
   )
 
   const bulletIconClassName = cn(
     styles.sidebarDefaultBullet,
     isExpanded && styles.active,
+    isCurrent && styles.currentBullet,
     isLeafItem && styles.sidebarLeafBullet
   )
 
   const bulletIconJSX = isLeafItem ? (
     <span className={bulletIconClassName}></span>
   ) : (
-    <button onClick={bulletIconClick} className={bulletIconClassName}></button>
+    <span
+      onClick={bulletIconClick}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          bulletIconClick(e)
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={isExpanded ? `Collapse ${label}` : `Expand ${label}`}
+      className={bulletIconClassName}
+    ></span>
   )
 
   const parentElement =
@@ -100,11 +112,7 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
         onClick={currentLevelOnClick}
         target="_blank"
       >
-        {iconElement ? (
-          iconElement
-        ) : (
-          <span className={bulletIconClassName}></span>
-        )}
+        {iconElement ?? <span className={bulletIconClassName}></span>}
         {label} <ExternalLinkIcon />
       </Link>
     ) : (
@@ -113,8 +121,9 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
         id={path}
         className={className}
         onClick={currentLevelOnClick}
+        aria-current={isCurrent ? 'page' : undefined}
       >
-        {iconElement ? iconElement : bulletIconJSX}
+        {iconElement ?? bulletIconJSX}
         {label}
       </Link>
     )
@@ -128,6 +137,7 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
             {children.map(item => (
               <SidebarMenuItem
                 key={item.path}
+                currentPath={currentPath}
                 activePaths={activePaths}
                 onClick={onClick}
                 {...item}

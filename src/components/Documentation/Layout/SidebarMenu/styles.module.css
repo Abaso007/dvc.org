@@ -39,32 +39,28 @@
   line-height: 26px;
   font-weight: 400;
   text-decoration: none;
-  color: var(--color-gray-light);
+  color: var(--color-gray-dark);
 
   svg {
     display: inline-block;
   }
 
   &:hover {
-    color: #3c3937;
+    color: var(--color-black);
 
     @media screen(xsMax) {
-      color: var(--color-gray-light);
+      color: var(--color-gray-hover);
     }
   }
 
   &.active {
     color: var(--color-gray-hover);
-
-    .sidebarDefaultBullet {
-      animation: rotateIcon 0.5s forwards;
-    }
+    font-weight: 500;
   }
-}
 
-@keyframes rotateIcon {
-  100% {
-    transform: rotate(90deg);
+  &.current {
+    color: var(--color-black);
+    font-weight: 600;
   }
 }
 
@@ -74,7 +70,7 @@
 }
 
 .specialIcon {
-  color: var(--color-gray-light);
+  color: var(--color-gray-dark);
   position: absolute;
   width: 0.65rem;
   height: 0.65rem;
@@ -82,18 +78,30 @@
   left: -0.08rem;
 }
 
+.sectionLink.active .specialIcon {
+  color: var(--color-gray-hover);
+}
+
+.sectionLink.current .specialIcon {
+  color: var(--color-black);
+}
+
 .sidebarDefaultBullet {
-  content: '';
   position: absolute;
   left: 0;
-  top: 9px;
+  top: 10px;
   display: block;
-  border: none;
-  height: 8px;
   width: 8px;
-  background: url('../../../../images/triangle_dark.svg') no-repeat center
-    center;
-  transition: 0.5s transform;
+  height: 8px;
+  padding: 0;
+  border: solid currentcolor;
+  border-width: 0 1.5px 1.5px 0;
+  background: transparent;
+  color: var(--color-gray-dark);
+  transform: rotate(-45deg);
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 
   &:focus {
     outline-color: var(--color-gray-light);
@@ -101,12 +109,23 @@
   }
 
   &:hover {
-    transform: scale(1.5);
+    color: var(--color-gray-hover);
+  }
+
+  &.active {
+    transform: rotate(45deg);
+  }
+
+  &.currentBullet {
+    color: var(--color-black);
   }
 
   &.sidebarLeafBullet {
-    background: url('../../../../images/default_bullet_dark.svg') no-repeat
-      center center;
+    width: 4px;
+    height: 4px;
+    border: none;
+    border-radius: 999px;
+    background: currentcolor;
     transform: unset;
   }
 }

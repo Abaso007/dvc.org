@@ -56,7 +56,11 @@ const SidebarMenu: React.FC<ISidebarMenuProps> = ({ currentPath, onClick }) => {
       className={cn(styles.menu, isScrollHidden && styles.isScrollHidden)}
       ref={rootRef}
     >
-      <InnerSidebar onClick={onClick} activePaths={activePaths} />
+      <InnerSidebar
+        currentPath={currentPath}
+        onClick={onClick}
+        activePaths={activePaths}
+      />
     </div>
   )
 }
