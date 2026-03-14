@@ -1,22 +1,35 @@
 .highlightedText {
+  --underline-thickness: 1.5px;
+  --underline-offset: 3px;
+
+  position: relative;
   text-decoration: underline dotted var(--color-gray-light);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
+  background-image: linear-gradient(var(--color-azure), var(--color-azure));
+  background-position: 0 calc(100% - var(--underline-offset));
+  background-repeat: no-repeat;
+  background-size: 0 var(--underline-thickness);
+  transition:
+    background-size 0.2s ease,
+    text-decoration-color 0.2s ease;
   cursor: help;
   font-style: italic;
 
   &:hover {
-    text-decoration-color: var(--color-azure);
+    text-decoration-color: transparent;
+    background-size: 100% var(--underline-thickness);
   }
 }
 
 .tooltip {
-  z-index: 12;
+  z-index: 1001;
   position: fixed;
   top: 0;
   left: 0;
   display: block;
   opacity: 0;
+  transform: translate3d(0, 0, 0) scale(0.98);
   width: 400px;
   max-width: calc(100vw - 32px);
   padding: 16px 20px;
@@ -28,11 +41,10 @@
   box-shadow:
     0 4px 24px rgb(0 0 0 / 12%),
     0 1px 4px rgb(0 0 0 / 8%);
-  transition: opacity 0.15s ease;
-
-  &.calculated {
-    opacity: 1;
-  }
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 
   &::after {
     position: absolute;
@@ -60,11 +72,23 @@
     right: 27px;
   }
 
+  &.lt,
+  &.rt {
+    transform: translate3d(0, -6px, 0) scale(0.98);
+    transform-origin: top center;
+  }
+
   &.lb::after,
   &.rb::after {
     top: 100%;
     margin-top: -5px;
     box-shadow: 2px 2px 4px rgb(0 0 0 / 4%);
+  }
+
+  &.lb,
+  &.rb {
+    transform: translate3d(0, 6px, 0) scale(0.98);
+    transform-origin: bottom center;
   }
 
   &.lb::after {
@@ -73,6 +97,11 @@
 
   &.rb::after {
     right: 27px;
+  }
+
+  &.calculated {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 

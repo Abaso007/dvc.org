@@ -3,12 +3,11 @@ import includes from 'lodash/includes'
 import { SyntheticEvent, useEffect, useState } from 'react'
 import { Collapse } from 'react-collapse'
 
+import { ReactComponent as ExternalLinkIcon } from '../../../../../images/external-link.svg'
 import { getPathWithSource } from '../../../../../utils/shared/sidebar'
 import Link from '../../../../Link'
 import ICONS from '../icons'
 import * as styles from '../styles.module.css'
-
-import { ReactComponent as ExternalLinkIcon } from './external-link-icon.svg'
 
 interface ISidebarMenuItemProps {
   children?: Array<{ label: string; path: string; source: boolean | string }>
@@ -113,7 +112,11 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
         target="_blank"
       >
         {iconElement ?? <span className={bulletIconClassName}></span>}
-        {label} <ExternalLinkIcon />
+        {label}{' '}
+        <ExternalLinkIcon
+          className={styles.externalLinkIcon}
+          aria-hidden="true"
+        />
       </Link>
     ) : (
       <Link

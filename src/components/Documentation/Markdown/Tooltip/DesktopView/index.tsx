@@ -18,26 +18,57 @@ interface ITooltipPosition {
 }
 
 const ARROW_SIZE = 10
+const VIEWPORT_PADDING = 16
+
+const getNavbarBottom = (): number => {
+  const header = document.querySelector('header[data-collapsed], #header')
+
+  return header?.getBoundingClientRect().bottom ?? 0
+}
 
 const getPosition = (toggle: Element, tooltip: Element): ITooltipPosition => {
   const toggleRect = toggle.getBoundingClientRect()
   const tooltipRect = tooltip.getBoundingClientRect()
   const windowWidth = document.documentElement.clientWidth
+  const windowHeight = document.documentElement.clientHeight
+  const safeTop = getNavbarBottom() + VIEWPORT_PADDING
+  const safeBottom = windowHeight - VIEWPORT_PADDING
   const result: ITooltipPosition = { left: 0, top: 0, arrow: ['l', 'b'] }
+  const leftAligned = toggleRect.left
+  const rightAligned = toggleRect.left + toggleRect.width - tooltipRect.width
+  const maxLeft = windowWidth - tooltipRect.width - VIEWPORT_PADDING
+  const topPosition = toggleRect.top - tooltipRect.height - ARROW_SIZE
+  const bottomPosition = toggleRect.bottom + ARROW_SIZE
+  const availableAbove = toggleRect.top - safeTop
+  const availableBelow = safeBottom - toggleRect.bottom
+  const shouldOpenAbove =
+    availableAbove >= tooltipRect.height + ARROW_SIZE ||
+    availableAbove >= availableBelow
 
   if (windowWidth - tooltipRect.width > toggleRect.left) {
-    result.left = toggleRect.left
+    result.left = leftAligned
   } else {
-    result.left = toggleRect.left + toggleRect.width - tooltipRect.width
+    result.left = rightAligned
     result.arrow[0] = 'r'
   }
 
-  if (toggleRect.top > tooltipRect.height + ARROW_SIZE) {
-    result.top = toggleRect.top - tooltipRect.height - ARROW_SIZE
+  result.left = Math.max(VIEWPORT_PADDING, Math.min(result.left, maxLeft))
+
+  if (shouldOpenAbove) {
+    result.top = topPosition
   } else {
-    result.top = toggleRect.top + toggleRect.height + ARROW_SIZE
+    result.top = bottomPosition
     result.arrow[1] = 't'
   }
+
+  result.top = Math.max(
+    safeTop,
+    Math.min(result.top, safeBottom - tooltipRect.height)
+  )
+  result.arrow[1] =
+    result.top + tooltipRect.height / 2 < toggleRect.top + toggleRect.height / 2
+      ? 'b'
+      : 't'
 
   return result
 }

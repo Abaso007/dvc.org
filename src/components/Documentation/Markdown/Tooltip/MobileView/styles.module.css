@@ -1,9 +1,25 @@
 .highlightedText {
+  --underline-thickness: 1.5px;
+  --underline-offset: 3px;
+
+  position: relative;
   text-decoration: underline dotted var(--color-gray-light);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1.5px;
+  text-underline-offset: var(--underline-offset);
+  text-decoration-thickness: var(--underline-thickness);
+  background-image: linear-gradient(var(--color-azure), var(--color-azure));
+  background-position: 0 calc(100% - var(--underline-offset));
+  background-repeat: no-repeat;
+  background-size: 0 var(--underline-thickness);
+  transition:
+    background-size 0.2s ease,
+    text-decoration-color 0.2s ease;
   cursor: help;
   font-style: italic;
+
+  &:hover {
+    text-decoration-color: transparent;
+    background-size: 100% var(--underline-thickness);
+  }
 }
 
 .modalBackground {
