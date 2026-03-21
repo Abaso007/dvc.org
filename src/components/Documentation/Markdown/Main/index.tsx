@@ -11,6 +11,7 @@ import Tutorials from '../../TutorialsLinks'
 
 import * as styles from './styles.module.css'
 import * as themeStyles from './theme.module.css'
+import { useArgsTargetFlash } from './useArgsTargetFlash'
 
 const isInsideCodeBlock = (node: Element): boolean => {
   while (node?.parentNode) {
@@ -47,6 +48,7 @@ const Main: React.FC<PropsWithChildren<IMainProps>> = ({
   const touchstartXRef = useRef(0)
   const touchendXRef = useRef(0)
   const isCodeBlockRef = useRef(false)
+  useArgsTargetFlash()
   useCustomYtEmbeds()
   const handleSwipeGesture = useCallback(() => {
     if (isCodeBlockRef.current) return

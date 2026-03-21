@@ -87,9 +87,27 @@
       margin-top: 0;
     }
 
+    /* Clickable flag links in usage blocks */
     a.token.arg {
       color: var(--color-light-blue);
-      outline-color: var(--color-light-blue-hover);
+      text-decoration: underline;
+      text-decoration-color: rgb(238 244 248 / 35%);
+      text-underline-offset: 2px;
+      cursor: pointer;
+      transition:
+        color 0.15s ease,
+        text-decoration-color 0.15s ease;
+    }
+
+    a.token.arg:hover,
+    a.token.arg:focus-visible {
+      color: var(--color-light-blue);
+      text-decoration-color: var(--default-blue);
+    }
+
+    :global(li.arg-target-flash) {
+      background-color: rgb(148 93 214 / 10%);
+      border-radius: 6px;
     }
 
     :global(a.gatsby-resp-image-link)::after {

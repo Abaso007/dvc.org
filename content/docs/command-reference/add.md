@@ -148,7 +148,7 @@ not.
   command.
 
 - `--no-relink` - Don't recreate
-  [file link types](/user-guide/data-management/large-dataset-optimization#file-link-types-for-the-dvc-cache))
+  [file link types](/user-guide/data-management/large-dataset-optimization#file-link-types-for-the-dvc-cache)
   from the cache to the workspace. This saves time when working with a large
   number of files, but the files may be reflinked or copied from the cache even
   if another link type is configured.
