@@ -7,15 +7,14 @@ Kill actively running [DVC experiment] tasks (see `dvc queue start`).
 ## Synopsis
 
 ```usage
-usage: dvc queue kill [-h] [-q | -v] [-f] [<task> ...]
-
-positional arguments:
-  <task>         Tasks in queue to kill.
+dvc queue kill [-f] [<task> ...]
 ```
 
 ## Description
 
 Gracefully interrupt running experiment queue tasks (equivalent to Ctrl-C).
+Specify one or more task IDs (as shown by `dvc queue status`) to kill specific
+tasks, or use `-f` to kill all running tasks.
 
 <admon type="warn">
 

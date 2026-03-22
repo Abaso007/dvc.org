@@ -6,14 +6,8 @@ Show changes in [metrics](/command-reference/metrics) and
 ## Synopsis
 
 ```usage
-usage: dvc exp diff [-h] [-q | -v] [--all] [--param-deps]
-                    [--json] [--md]
-                    [--no-path] [--precision <n>]
-                    [a_rev] [b_rev]
-positional arguments:
-  a_rev            Old experiment to compare (defaults to HEAD)
-  b_rev            New experiment to compare (defaults to the current
-                   workspace)
+dvc exp diff [--all] [--param-deps] [--json] [--md] [--no-path]
+             [--precision <n>] [<a_rev>] [<b_rev>]
 ```
 
 # Description

@@ -6,11 +6,7 @@ patterns found in `.dvcignore`.
 ## Synopsis
 
 ```usage
-usage: dvc check-ignore [-h] [-q | -v] [-d] [-a] [-n] [--stdin]
-                        targets [targets ...]
-
-positional arguments:
-  targets        File or directory paths to check
+dvc check-ignore [-d] [-a] [-n] [--stdin] <targets> ...
 ```
 
 ## Description

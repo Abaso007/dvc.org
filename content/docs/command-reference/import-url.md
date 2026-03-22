@@ -15,15 +15,9 @@ other <abbr>DVC repositories</abbr> (e.g. hosted on GitHub).
 ## Synopsis
 
 ```usage
-usage: dvc import-url [-h] [-q | -v]
-           [--to-remote] [-r <name>] [--no-exec | --no-download]
-           [-j <number>] [-f] [--version-aware]
-           [--fs-config <name>=<value>]
-           url [out]
-
-positional arguments:
-  url                   (See supported URLs in the description.)
-  out                   Destination path to put files in.
+dvc import-url [--to-remote] [-r <name>] [--no-exec | --no-download]
+               [-j <number>] [-f] [--version-aware]
+               [--fs-config <name>=<value>] <url> [<out>]
 ```
 
 ## Description

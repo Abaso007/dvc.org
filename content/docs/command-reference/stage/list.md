@@ -5,14 +5,7 @@ List <abbr>stages</abbr> in the project.
 ## Synopsis
 
 ```usage
-usage: dvc stage list [-h] [-q | -v]
-                      [-R] [--all] [--fail] [--name-only]
-                      [targets ...]
-
-positional arguments:
-  targets       Limit command scope to these dvc.yaml files,
-                directories (with -R), or stage names.
-                './dvc.yaml' by default.
+dvc stage list [-R] [--all] [--fail] [--name-only] [targets ...]
 ```
 
 > See [`targets`](#options) for more details.

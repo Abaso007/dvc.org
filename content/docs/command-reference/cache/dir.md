@@ -6,14 +6,7 @@ using `dvc config cache`), or shows the current configured value.
 ## Synopsis
 
 ```usage
-usage: dvc cache dir [-h] [--global | --system | --project | --local]
-                     [-u] [value]
-
-positional arguments:
-  value        Path to cache directory. Relative paths are resolved
-               relative to the current directory and saved to config
-               relative to the config file location. If no path is
-               provided, it returns the current cache directory.
+dvc cache dir [--global | --system | --project | --local] [-u] [<value>]
 ```
 
 ## Description

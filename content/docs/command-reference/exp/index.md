@@ -15,23 +15,7 @@ A set of commands to generate and manage <abbr>experiments</abbr>:
 ## Synopsis
 
 ```usage
-usage: dvc exp [-h] [-q | -v]
-          {show,apply,diff,run,branch,list,push,pull,remove,clean}
-          ...
-
-positional arguments:
-  COMMAND
-    show                Print experiments.
-    run                 Run or resume an experiment.
-    apply               Apply the changes from an experiment to your workspace.
-    branch              Promote an experiment to a Git branch.
-    clean               Cleanup experiments temporary internal files.
-    diff                Show changes between experiments.
-    list                List local and remote experiments.
-    pull                Pull an experiment from a Git remote.
-    push                Push a local experiment to a Git remote.
-    remove              Remove experiments.
-    save                Save current workspace as an experiment.
+dvc exp {show,apply,diff,run,branch,list,push,pull,remove,clean}
 ```
 
 ## Description

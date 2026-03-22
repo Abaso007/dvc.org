@@ -13,15 +13,8 @@ See also `dvc exp run`, which includes this operation.
 ## Synopsis
 
 ```usage
-usage: dvc exp save [-h] [-q | -v] [-R] [-f]
-                   [--json] [-n <name>]
-                   [-I path] [-m <message>]
-                   [targets [targets ...]]
-
-positional arguments:
-  targets        Limit DVC caching to these stages or .dvc files.
-                 Using -R, directories to search for stages or .dvc
-                 files can also be given.
+dvc exp save [-R] [-f] [--json] [-n <name>] [-I <path>] [-m <message>]
+             [targets ...]
 ```
 
 ## Description

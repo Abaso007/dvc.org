@@ -7,12 +7,9 @@ Delete specific experiments from the <abbr>project</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc exp remove [-h] [-q | -v] [-A] [--rev <commit>] [-n <num>]
-                      [--queue | -g <git_remote>] [--keep]
-                      [<name> [<name> ...]]
-
-positional arguments:
-   experiment    Experiments to remove.
+dvc exp remove [-A] [--rev <commit>] [-n <num>]
+               [--queue | -g <git_remote>] [--keep]
+               [<name> ...]
 ```
 
 ## Description

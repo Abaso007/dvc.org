@@ -8,16 +8,7 @@ projects: [show](/command-reference/plots/show),
 ## Synopsis
 
 ```usage
-usage: dvc plots [-h] [-q | -v] {show,diff,templates} ...
-
-positional arguments:
-  COMMAND
-    show        Generate plots from target files or from `plots`
-                definitions in `dvc.yaml`.
-    diff        Show multiple versions of a plot by overlaying them
-                in a single image.
-    templates   List built-in plots templates or show JSON
-                specification for one.
+dvc plots {show,diff,templates}
 ```
 
 ## Description

@@ -9,14 +9,9 @@ Download tracked files or directories from [remote storage] based on the current
 ## Synopsis
 
 ```usage
-usage: dvc pull [-h] [-q | -v] [-j <number>] [-r <name>] [-a] [-T]
-                [-d] [-f] [-R] [--all-commits]
-                [--run-cache | --no-run-cache] [--allow-missing]
-                [targets [targets ...]]
-
-positional arguments:
-  targets       Limit command scope to these tracked files/directories,
-                .dvc files, or stage names.
+dvc pull [-j <number>] [-r <name>] [-a] [-T] [-d] [-f] [-R]
+         [--all-commits] [--run-cache | --no-run-cache]
+         [--allow-missing] [targets ...]
 ```
 
 ## Description

@@ -7,10 +7,7 @@ Show console output logs for [DVC experiment] tasks (see `dvc queue start`).
 ## Synopsis
 
 ```usage
-usage: dvc queue logs [-h] [-q | -v] [-e <encoding>] [-f] <task>
-
-positional arguments:
-  <task>                Task to show.
+dvc queue logs [-e <encoding>] [-f] <task>
 ```
 
 ## Description

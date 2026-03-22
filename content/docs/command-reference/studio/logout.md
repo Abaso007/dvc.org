@@ -5,7 +5,7 @@ This command logs out user from DVC Studio.
 ## Synopsis
 
 ```usage
-usage: dvc studio logout [-h] [-q | -v]
+dvc studio logout
 ```
 
 ## Description

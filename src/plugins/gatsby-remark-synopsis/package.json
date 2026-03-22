@@ -1,0 +1,8 @@
+{
+  "name": "gatsby-remark-synopsis",
+  "version": "1.0.0",
+  "description": "Generates essential synopsis form for command reference pages",
+  "type": "module",
+  "main": "index.js",
+  "license": "ISC"
+}

@@ -8,16 +8,10 @@ into the current working directory (with optional DVC Studio support).
 ## Synopsis
 
 ```usage
-usage: dvc artifacts get [-h] [-q | -v]
-                         [--rev [<version>]] [--stage [<stage>]]
-                         [-o [<path>]] [--show-url] [-j <number>] [-f]
-                         [--config CONFIG]
-                         [--remote REMOTE] [--remote-config [REMOTE_CONFIG ...]]
-                         url name
-
-positional arguments:
-  url                   Location of DVC repository to download from
-  name                  Name of artifact in the repository
+dvc artifacts get [--rev <version>] [--stage <stage>] [-o <path>]
+                  [--show-url] [-j <number>] [-f] [--config <path>]
+                  [--remote <name>]
+                  [--remote-config [<key>=<value> ...]] <url> <name>
 ```
 
 ## Description

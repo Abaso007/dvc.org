@@ -12,13 +12,7 @@ global [DVC configuration]: [login](/command-reference/studio/login),
 ## Synopsis
 
 ```usage
-usage: dvc studio [-h] [-q | -v] {login,logout,token} ...
-
-positional arguments:
-  COMMAND
-    login               Authenticate DVC with Studio host.
-    logout              Logout user from Studio.
-    token               View the token DVC uses to contact Studio.
+dvc studio {login,logout,token}
 ```
 
 ## Description

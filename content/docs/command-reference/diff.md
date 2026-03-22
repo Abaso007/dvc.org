@@ -7,14 +7,8 @@ workspace.
 ## Synopsis
 
 ```usage
-usage: dvc diff [-h] [-q | -v]
-                [--targets [<paths> [<paths> ...]]]
-                [--json] [--show-hash] [--md]
-                [a_rev] [b_rev]
-
-positional arguments:
-  a_rev      Old Git commit to compare (defaults to HEAD)
-  b_rev      New Git commit to compare (defaults to current workspace)
+dvc diff [--targets <path> ...] [--json] [--show-hash]
+         [--md] [<a_rev>] [<b_rev>]
 ```
 
 ## Description

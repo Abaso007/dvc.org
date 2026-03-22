@@ -6,13 +6,8 @@ current `dvc.lock` and `.dvc` files.
 ## Synopsis
 
 ```usage
-usage: dvc checkout [-h] [-q | -v] [--summary] [-d] [-R] [-f]
-                    [--relink] [--allow-missing]
-                    [targets [targets ...]]
-
-positional arguments:
-  targets       Limit command scope to these tracked files/directories,
-                .dvc files, or stage names.
+dvc checkout [--summary] [-d] [-R] [-f] [--relink] [--allow-missing]
+             [targets ...]
 ```
 
 ## Description

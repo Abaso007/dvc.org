@@ -9,12 +9,7 @@ Removes non-active tasks from the [DVC experiment] queue.
 ## Synopsis
 
 ```usage
-usage: dvc queue remove [-h] [-q | -v]
-                        [--all] [--queued] [--success] [--failed]
-                        [<task> ...]
-
-positional arguments:
-  <task>         Tasks in queue to remove.
+dvc queue remove [--all] [--queued] [--success] [--failed] [<task> ...]
 ```
 
 ## Description

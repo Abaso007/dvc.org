@@ -9,7 +9,6 @@ import tailwindNesting from 'tailwindcss/nesting/index.js'
 
 import 'dotenv/config'
 import './src/config/prismjs/dvc.js'
-import './src/config/prismjs/usage.js'
 import './src/config/prismjs/dvctable.js'
 import simpleLinkerTerms from './content/linked-terms.js'
 import redirectsMiddleware from './server/redirect.js'
@@ -118,6 +117,9 @@ const plugins = [
             // Pathname can also be array of paths. eg: ['docs/command-reference;', 'docs/api']
             pathname: argsLinkerPath
           }
+        },
+        {
+          resolve: require.resolve('./src/plugins/gatsby-remark-synopsis')
         },
         {
           resolve: 'gatsby-remark-prismjs',

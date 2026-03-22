@@ -9,11 +9,7 @@ has the same base name (typical).
 ## Synopsis
 
 ```usage
-usage: dvc move [-h] [-q | -v] src dst
-
-positional arguments:
-  src            Source path to a data file or directory.
-  dst            Destination path.
+dvc move <src> <dst>
 ```
 
 ## Description

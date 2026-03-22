@@ -15,25 +15,19 @@ When called with no arguments, this is equivalent to `dvc repro` followed by
 ## Synopsis
 
 ```usage
-usage: dvc exp run [-h] [-q | -v] [-f] [-i]
-                   [-s] [-p] [-P] [-R]
-                   [-n <name>] [-S [<filename>:]<override_pattern>]
-                   [--queue] [--run-all] [-j <number>] [--temp]
-                   [-r <experiment_rev>] [-C <path>]
-                   [-m <message>]
-                   [--downstream] [--force-downstream]
-                   [--pull] [--dry] [--allow-missing]
-                   [-k] [--ignore-errors]
-                   [targets [targets ...]]
-
-positional arguments:
-  targets               Stages to reproduce. 'dvc.yaml' by default
+dvc exp run [-f] [-i] [-s] [-p] [-P] [-R] [-n <name>]
+            [-S [<filename>:]<override_pattern>] [--queue] [--run-all]
+            [-j <number>] [--temp] [-r <experiment_rev>] [-C <path>]
+            [-m <message>] [--downstream] [--force-downstream] [--pull]
+            [--dry] [--allow-missing] [-k] [--ignore-errors]
+            [targets ...]
 ```
 
 ## Description
 
 Executes and tracks <abbr>experiments</abbr> in your <abbr>repository</abbr>
 without polluting it with unnecessary Git commits, branches, directories, etc.
+See `dvc repro` for more on [`targets`](/command-reference/repro#options).
 
 <admon type="info">
 

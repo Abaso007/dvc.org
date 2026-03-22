@@ -6,16 +6,11 @@ in a single image. This allows to compare them easily.
 ## Synopsis
 
 ```usage
-usage: dvc plots diff [-h] [-q | -v]
-                      [--targets [<paths> [<paths> ...]]]
-                      [-t <name_or_path>] [-x <field>] [-y <field>]
-                      [--no-header] [--title <text>]
-                      [--x-label <text>] [--y-label <text>] [-o <path>]
-                      [--show-vega] [--open] [--html-template <path>]
-                      [revisions [revisions ...]]
-
-positional arguments:
-  revisions             Git commits to find metrics to compare
+dvc plots diff [--targets <path> ...] [-t <name_or_path>]
+               [-x <field>] [-y <field>] [--no-header] [--title <text>]
+               [--x-label <text>] [--y-label <text>] [-o <path>]
+               [--show-vega] [--open] [--html-template <path>]
+               [<revisions> ...]
 ```
 
 ## Description

@@ -8,17 +8,9 @@ Download a file or directory tracked by another DVC or Git repository into the
 ## Synopsis
 
 ```usage
-usage: dvc import [-h] [-q | -v]
-                  [-o <path>] [-f] [--rev <commit>]
-                  [--no-exec | --no-download]
-                  [-j <number>]
-                  [--config <path>] [--remote <name>]
-                  [--remote-config [<name>=<value> ...]]
-                  url path
-
-positional arguments:
-  url              Location of DVC or Git repository to download from
-  path             Path to a file or directory within the repository
+dvc import [-o <path>] [-f] [--rev <commit>] [--no-exec | --no-download]
+           [-j <number>] [--config <path>] [--remote <name>]
+           [--remote-config [<name>=<value> ...]] <url> <path>
 ```
 
 ## Description

@@ -6,11 +6,7 @@ can save and customize it.
 ## Synopsis
 
 ```usage
-usage: dvc plots templates [-h] [-q | -v] [template]
-
-positional arguments:
- template    Template for which to show JSON specification.
-             List all template names by default.
+dvc plots templates [<template>]
 ```
 
 ## Description

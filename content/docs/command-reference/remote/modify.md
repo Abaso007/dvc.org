@@ -15,14 +15,8 @@ other customizations. See [Remote storage configuration] for more information.
 ## Synopsis
 
 ```usage
-usage: dvc remote modify [-h] [--global | --system | --project | --local]
-                         [-q | -v] [-u]
-                         name option [value]
-
-positional arguments:
-  name           Name of the remote
-  option         Name of the option to modify
-  value          (optional) Value of the option
+dvc remote modify [--global | --system | --project | --local] [-u] <name>
+                  <option> [<value>]
 ```
 
 ## Description

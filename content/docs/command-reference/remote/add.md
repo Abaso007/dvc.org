@@ -16,13 +16,8 @@ information.
 ## Synopsis
 
 ```usage
-usage: dvc remote add [-h] [--global | --system | --project | --local]
-                      [-q | -v] [-d] [-f]
-                      name url
-
-positional arguments:
-  name           Name of the remote.
-  url            (See supported URLs in the examples below.)
+dvc remote add [--global | --system | --project | --local] [-d] [-f]
+               <name> <url>
 ```
 
 ## Description

@@ -8,14 +8,8 @@ or between a commit and the <abbr>workspace</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc params diff [-h] [-q | -v]
-                       [--targets [<paths> [<paths> ...]]] [--all]
-                       [--deps] [--json] [--md] [--no-path]
-
-positional arguments:
-  a_rev          Old Git commit to compare (defaults to HEAD)
-  b_rev          New Git commit to compare (defaults to the
-                 current workspace)
+dvc params diff [--targets <path> ...] [--all] [--deps]
+                [--json] [--md] [--no-path]
 ```
 
 ## Description

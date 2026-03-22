@@ -8,14 +8,9 @@ Upload [experiments](/command-reference/exp) to a Git remote, and their data to
 ## Synopsis
 
 ```usage
-usage: dvc exp push [-h] [-q | -v] [-A] [--rev <commit>] [-n <num>] [-f]
-                    [--no-cache] [-r <name>] [-j <number>]
-                    [--run-cache | --no-run-cache]
-                    git_remote [experiment ...]
-
-positional arguments:
-  git_remote          Git remote name or Git URL
-  experiment          Experiment to push
+dvc exp push [-A] [--rev <commit>] [-n <num>] [-f] [--no-cache]
+             [-r <name>] [-j <number>] [--run-cache | --no-run-cache]
+             <git_remote> [<experiment> ...]
 ```
 
 ## Description

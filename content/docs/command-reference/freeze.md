@@ -6,10 +6,7 @@ them. Frozen stages are never executed by `dvc repro`.
 ## Synopsis
 
 ```usage
-usage: dvc freeze [-h] [-q | -v] targets [targets ...]
-
-positional arguments:
-  targets        Stages or .dvc files to freeze
+dvc freeze <targets> ...
 ```
 
 ## Description

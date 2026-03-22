@@ -6,11 +6,7 @@ registry</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc artifacts [-h] [-q | -v] {get} ...
-
-positional arguments:
-  COMMAND
-    get          Download an artifact from a DVC project.
+dvc artifacts {get}
 ```
 
 ## Description

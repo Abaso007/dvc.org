@@ -5,14 +5,7 @@ Rename a specific experiment from the <abbr>project</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc exp rename [-h] [-q | -v]
-                      [-g <git_remote>]
-                      [--force]
-                      [experiment] [name]
-
-positional arguments:
-   experiment    Experiment to rename
-   name          New name for the experiment
+dvc exp rename [-g <git_remote>] [--force] [<experiment>] [<name>]
 ```
 
 ## Description

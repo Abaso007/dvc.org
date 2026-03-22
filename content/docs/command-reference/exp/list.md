@@ -7,12 +7,7 @@ List experiments in a <abbr>DVC repository</abbr> (remote or local).
 ## Synopsis
 
 ```usage
-usage: dvc exp list [-h] [-q | -v] [-A] [--rev <commit>]
-                    [-n <num>] [--name-only]
-                    [git_remote]
-
-positional arguments:
-  git_remote    Optional Git remote name or Git URL
+dvc exp list [-A] [--rev <commit>] [-n <num>] [--name-only] [<git_remote>]
 ```
 
 ## Description

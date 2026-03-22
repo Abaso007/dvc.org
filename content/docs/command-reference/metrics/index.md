@@ -7,12 +7,7 @@ A set of commands to display and compare _metrics_:
 ## Synopsis
 
 ```usage
-usage: dvc metrics [-h] [-q | -v] {show,diff} ...
-
-positional arguments:
-  COMMAND
-    show                Print metrics, with optional formatting
-    diff                Show changes in metrics between commits.
+dvc metrics {show,diff}
 ```
 
 ## Description

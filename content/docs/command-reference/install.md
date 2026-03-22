@@ -6,7 +6,7 @@ common actions.
 ## Synopsis
 
 ```usage
-usage: dvc install [-h] [-q | -v] [--use-pre-commit-tool]
+dvc install [--use-pre-commit-tool]
 ```
 
 ## Description

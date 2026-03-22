@@ -6,13 +6,7 @@ graphs.
 ## Synopsis
 
 ```usage
-usage: dvc dag [-h] [-q | -v] [-o] [--full]
-               [--md] [--mermaid] [--dot]
-               [target]
-
-positional arguments:
-  target          Stage or output to show pipeline for (optional)
-                  Uses all stages in the workspace by default.
+dvc dag [-o] [--full] [--md] [--mermaid] [--dot] [<target>]
 ```
 
 ## Description

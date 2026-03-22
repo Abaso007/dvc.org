@@ -12,11 +12,9 @@ For the status of <abbr>data pipelines</abbr>, see `dvc status`.
 ## Synopsis
 
 ```usage
-usage: dvc data status [-h] [-q | -v]
-                       [--granular] [--unchanged]
-                       [--untracked-files [{no,all}]]
-                       [--json]
-                       [--not-in-remote] [-r <name>] [--no-remote-refresh]
+dvc data status [--granular] [--unchanged]
+                [--untracked-files] [--json]
+                [--not-in-remote] [-r <name>] [--no-remote-refresh]
 ```
 
 ## Description

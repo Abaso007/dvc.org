@@ -7,14 +7,12 @@ Displays your experiments in a customizable table.
 ## Synopsis
 
 ```usage
-usage: dvc exp show [-h] [-q | -v] [-a] [-T] [-A] [--rev <commit>]
-                    [-n <num>] [--no-pager] [--drop <regex>]
-                    [--keep <regex>] [--param-deps]
-                    [--sort-by <metric/param>]
-                    [--sort-order {asc,desc}] [--sha]
-                    [--hide-failed] [--hide-queued] [--hide-workspace]
-                    [--json] [--csv] [--md] [--precision <n>]
-                    [--only-changed] [-f]
+dvc exp show [-a] [-T] [-A] [--rev <commit>] [-n <num>] [--no-pager]
+             [--drop <regex>] [--keep <regex>] [--param-deps]
+             [--sort-by <metric/param>] [--sort-order {asc,desc}]
+             [--sha] [--hide-failed] [--hide-queued] [--hide-workspace]
+             [--json] [--csv] [--md] [--precision <n>] [--only-changed]
+             [-f]
 ```
 
 ## Description

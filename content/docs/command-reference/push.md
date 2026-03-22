@@ -8,14 +8,8 @@ Upload tracked files or directories to [remote storage] based on the current
 ## Synopsis
 
 ```usage
-usage: dvc push [-h] [-q | -v] [-j <number>] [-r <name>] [-a] [-T]
-                [--all-commits] [--glob] [-d] [-R]
-                [--run-cache | --no-run-cache]
-                [targets [targets ...]]
-
-positional arguments:
-  targets       Limit command scope to these tracked files/directories,
-                .dvc files, or stage names.
+dvc push [-j <number>] [-r <name>] [-a] [-T] [--all-commits] [--glob]
+         [-d] [-R] [--run-cache | --no-run-cache] [targets ...]
 ```
 
 ## Description

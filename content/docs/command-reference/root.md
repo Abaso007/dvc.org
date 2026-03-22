@@ -5,7 +5,7 @@ Return the relative path to the root directory of the <abbr>DVC project</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc root [-h] [-q | -v]
+dvc root
 ```
 
 ## Description

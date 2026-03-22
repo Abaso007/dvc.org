@@ -5,13 +5,8 @@ Track data files or directories with DVC.
 ## Synopsis
 
 ```usage
-usage: dvc add [-h] [-q | -v] [-f] [--no-commit]
-               [--glob] [-o <path>]
-               [--to-remote] [-r <name>] [--remote-jobs <number>]
-               [--no-relink]
-               targets [targets ...]
-positional arguments:
-  targets               Files or directories to add or update
+dvc add [-f] [--no-commit] [--glob] [-o <path>] [--to-remote]
+        [-r <name>] [--remote-jobs <number>] [--no-relink] <targets> ...
 ```
 
 ## Description

@@ -7,11 +7,7 @@ Contains a helper commands to manage the <abbr>cache</abbr> directory:
 ## Synopsis
 
 ```usage
-usage: dvc cache [-h] [-q] [-v] {dir,migrate} ...
-
-positional arguments:
-    dir          Configure cache directory location.
-    migrate      Migrate cached files to the DVC 3.0 cache location.
+dvc cache {dir,migrate}
 ```
 
 ## Description

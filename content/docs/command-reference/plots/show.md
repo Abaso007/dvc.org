@@ -6,15 +6,10 @@ Generate [plots](/command-reference/plots) from any `plots` defined in
 ## Synopsis
 
 ```usage
-usage: dvc plots show [-h] [-q | -v] [-t <name_or_path>] [-x <field>]
-                      [-y <field>] [--no-header] [--title <text>]
-                      [--x-label <text>] [--y-label <text>] [-o <path>]
-                      [--show-vega] [--open] [--html-template <path>]
-                      [targets [targets ...]]
-
-positional arguments:
-  targets               Plots files or plot IDs from `dvc.yaml` to
-                        visualize. Shows all plots by default.
+dvc plots show [-t <name_or_path>] [-x <field>] [-y <field>]
+               [--no-header] [--title <text>] [--x-label <text>]
+               [--y-label <text>] [-o <path>] [--show-vega] [--open]
+               [--html-template <path>] [targets ...]
 ```
 
 ## Description

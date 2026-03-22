@@ -5,8 +5,7 @@ List all `dvc remote` names and locations.
 ## Synopsis
 
 ```usage
-usage: dvc remote list [-h] [--global | --system | --project | --local]
-                       [-q | -v]
+dvc remote list [--global | --system | --project | --local]
 ```
 
 ## Description

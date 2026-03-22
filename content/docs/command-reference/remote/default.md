@@ -5,13 +5,8 @@ Set/unset the default `dvc remote`.
 ## Synopsis
 
 ```usage
-usage: dvc remote default [-h]
-                          [--global | --system | --project | --local]
-                          [-q | -v] [-u]
-                          [name]
-
-positional arguments:
-  name           Name of the remote.
+dvc remote default [--global | --system | --project | --local] [-u]
+                   [<name>]
 ```
 
 ## Description

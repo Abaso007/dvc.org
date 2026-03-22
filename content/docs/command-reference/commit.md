@@ -5,13 +5,7 @@ Record changes to files or directories tracked by DVC.
 ## Synopsis
 
 ```usage
-usage: dvc commit [-h] [-q | -v] [-f] [-d] [-R]
-                  [--no-relink] [targets [targets ...]]
-
-positional arguments:
-  targets        Limit command scope to these stages or .dvc files.
-                 Using -R, directories to search for stages or .dvc
-                 files can also be given.
+dvc commit [-f] [-d] [-R] [--no-relink] [targets ...]
 ```
 
 ## Description
@@ -19,7 +13,8 @@ positional arguments:
 Stores the current contents of files and directories tracked by DVC in the
 <abbr>cache</abbr>, and updates `dvc.lock` or `.dvc` files if/as needed. This
 forces DVC to accept any changed contents of tracked data currently in the
-<abbr>workspace</abbr>.
+<abbr>workspace</abbr>. The `targets` can be stages or `.dvc` file names (use
+`-R` to also search directories).
 
 💡 For convenience, a pre-commit Git hook is available to remind you to
 `dvc commit` when needed. See `dvc install` for more info.

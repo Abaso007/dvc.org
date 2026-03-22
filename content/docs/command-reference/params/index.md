@@ -6,12 +6,7 @@ Contains a command to show changes in <abbr>parameters</abbr>:
 ## Synopsis
 
 ```usage
-usage: dvc params [-h] [-q | -v] {diff} ...
-
-positional arguments:
-  COMMAND
-    diff         Show changes in params between commits in the
-                 DVC repository, or between a commit and the workspace.
+dvc params {diff}
 ```
 
 ## Description

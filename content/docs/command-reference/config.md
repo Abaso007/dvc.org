@@ -5,14 +5,8 @@ Get or set <abbr>project</abbr>-level (or global) DVC configuration options.
 ## Synopsis
 
 ```usage
-usage: dvc config [-h] [--global | --system | --project | --local]
-                  [-q | -v] [-u]
-                  [-l] [--show-origin] [name] [value]
-
-positional arguments:
-  name     Option name in format: section.option or remote.name.option
-           e.g. 'core.check_update', 'cache.dir', 'remote.myremote.url'
-  value    Option value.
+dvc config [--global | --system | --project | --local] [-u] [-l]
+           [--show-origin] [<name>] [<value>]
 ```
 
 ## Description

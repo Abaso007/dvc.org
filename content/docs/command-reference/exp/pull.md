@@ -8,14 +8,9 @@ from [remote storage].
 ## Synopsis
 
 ```usage
-usage: dvc exp pull [-h] [-q | -v] [-A] [--rev <commit>] [-n <num>] [-f]
-                    [--no-cache] [-r <name>] [-j <number>]
-                    [--run-cache | --no-run-cache]
-                    git_remote [experiment ...]
-
-positional arguments:
-  git_remote          Git remote name or Git URL
-  experiment          Experiment to pull
+dvc exp pull [-A] [--rev <commit>] [-n <num>] [-f] [--no-cache]
+             [-r <name>] [-j <number>] [--run-cache | --no-run-cache]
+             <git_remote> [<experiment> ...]
 ```
 
 ## Description

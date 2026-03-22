@@ -7,7 +7,7 @@ Show status of tasks and workers for the [DVC experiment] task queue.
 ## Synopsis
 
 ```usage
-usage: dvc queue status [-h] [-q | -v]
+dvc queue status
 ```
 
 ## Description

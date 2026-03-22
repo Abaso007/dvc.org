@@ -8,14 +8,8 @@ or [URLs], and the corresponding import `.dvc` files.
 ## Synopsis
 
 ```usage
-usage: dvc update [-h] [-q | -v] [-R] [--rev <commit>]
-                  [--to-remote] [-r <name>]
-                  [--no-download] [-j <number>]
-                  targets [targets ...]
-
-positional arguments:
-  targets      Import .dvc files to update. Using -R, directories
-               to search for .dvc files can also be given.
+dvc update [-R] [--rev <commit>] [--to-remote] [-r <name>]
+           [--no-download] [-j <number>] <targets> ...
 ```
 
 ## Description

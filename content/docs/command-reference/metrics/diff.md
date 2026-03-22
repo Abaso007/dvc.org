@@ -8,16 +8,9 @@ Compare [metrics](/command-reference/metrics) between two commits in the
 ## Synopsis
 
 ```usage
-usage: dvc metrics diff [-h] [-q | -v]
-                        [--targets [<paths> [<paths> ...]]] [-R]
-                        [--all] [--json] [--md] [--no-path]
-                        [--precision <n>]
-                        [a_rev] [b_rev]
-
-positional arguments:
-  a_rev                 Old Git commit to compare (defaults to HEAD)
-  b_rev                 New Git commit to compare (defaults to the
-                        current workspace)
+dvc metrics diff [--targets <path> ...] [-R] [--all]
+                 [--json] [--md] [--no-path] [--precision <n>] [<a_rev>]
+                 [<b_rev>]
 ```
 
 ## Description

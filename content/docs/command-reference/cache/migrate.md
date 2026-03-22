@@ -5,7 +5,7 @@ Migrate existing <abbr>cache</abbr> data to the DVC 3.0 location.
 ## Synopsis
 
 ```usage
-usage: dvc cache migrate [-h] [-q | -v] [--dvc-files] [--dry]
+dvc cache migrate [--dvc-files] [--dry]
 ```
 
 ## Description

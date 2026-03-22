@@ -6,11 +6,7 @@ branch.
 ## Synopsis
 
 ```usage
-usage: dvc exp branch [-h] [-q | -v] experiment [branch]
-
-positional arguments:
-  experiment     Experiment to turn into a branch
-  branch         Optional name for the new Git branch. Defaults to '{experiment-name}-branch'
+dvc exp branch <experiment> [<branch>]
 ```
 
 ## Description

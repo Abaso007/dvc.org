@@ -13,15 +13,7 @@ A set of commands to set up and manage [remote storage]:
 ## Synopsis
 
 ```usage
-usage: dvc remote [-h] [-q | -v] {add,default,remove,modify,list} ...
-
-positional arguments:
-  COMMAND
-    add                 Add remote.
-    default             Set/unset default remote.
-    remove              Remove remote.
-    modify              Modify remote.
-    list                List available remotes.
+dvc remote {add,default,remove,modify,list}
 ```
 
 ## Description

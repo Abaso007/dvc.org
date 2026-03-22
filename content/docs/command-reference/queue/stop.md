@@ -8,7 +8,7 @@ ones are finished running.
 ## Synopsis
 
 ```usage
-usage: dvc queue stop [-h] [-q | -v] [--kill]
+dvc queue stop [--kill]
 ```
 
 ## Description

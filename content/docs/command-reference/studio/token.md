@@ -5,7 +5,7 @@ View the token DVC uses to contact Studio.
 ## Synopsis
 
 ```usage
-usage: dvc studio token [-h] [-q | -v]
+dvc studio token
 ```
 
 ## Description

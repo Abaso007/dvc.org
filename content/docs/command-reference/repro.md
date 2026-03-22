@@ -6,16 +6,10 @@ Reproduce complete or partial <abbr>pipelines</abbr> by running their
 ## Synopsis
 
 ```usage
-usage: dvc repro [-h] [-q | -v] [-f] [-i]
-                 [-s] [-p] [-P] [-R]
-                 [--downstream] [--force-downstream]
-                 [--pull] [--allow-missing] [--dry]
-                 [--glob] [--no-commit] [--no-run-cache]
-                 [-k] [--ignore-errors]
-                 [targets [<target> ...]]
-
-positional arguments:
-  targets       Stages to reproduce. 'dvc.yaml' by default.
+dvc repro [-f] [-i] [-s] [-p] [-P] [-R] [--downstream]
+          [--force-downstream] [--pull] [--allow-missing] [--dry]
+          [--glob] [--no-commit] [--no-run-cache] [-k] [--ignore-errors]
+          [targets ...]
 ```
 
 > See [`targets`](#options) for more details.

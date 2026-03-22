@@ -16,13 +16,8 @@ For the status of tracked data, see
 ## Synopsis
 
 ```usage
-usage: dvc status [-h] [-v] [-j <number>] [-q] [-c] [-r <name>] [-a] [-T]
-                  [--all-commits] [-d] [-R] [--json] [--no-updates]
-                  [targets [targets ...]]
-
-positional arguments:
-  targets       Limit command scope to these tracked files/directories,
-                .dvc files, or stage names.
+dvc status [-j <number>] [-c] [-r <name>] [-a] [-T] [--all-commits] [-d]
+           [-R] [--json] [--no-updates] [targets ...]
 ```
 
 ## Description

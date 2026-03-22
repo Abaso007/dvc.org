@@ -8,7 +8,7 @@ Start running all [queued experiments], possibly in parallel.
 ## Synopsis
 
 ```usage
-usage: dvc queue start [-h] [-q | -v] [-j <number>]
+dvc queue start [-j <number>]
 ```
 
 ## Description

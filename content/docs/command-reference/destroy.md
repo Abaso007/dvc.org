@@ -7,7 +7,7 @@ project</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc destroy [-h] [-q | -v] [-f]
+dvc destroy [-f]
 ```
 
 ## Description

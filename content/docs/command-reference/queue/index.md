@@ -11,17 +11,7 @@ A set of commands to manage the [DVC experiments] task queue:
 ## Synopsis
 
 ```usage
-usage: dvc queue [-h] [-q | -v]
-                 {start,stop,status,logs,remove,kill} ...
-
-positional arguments:
-  COMMAND
-    start       Start experiments queue workers.
-    stop        Stop experiments queue workers.
-    status      List the status of the queue tasks and workers.
-    logs        Show output logs for a task in the experiments queue.
-    remove      Remove tasks in experiments queue.
-    kill        Kill tasks in experiments queue.
+dvc queue {start,stop,status,logs,remove,kill}
 ```
 
 ## Description

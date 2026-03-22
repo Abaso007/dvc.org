@@ -10,16 +10,10 @@ and by Git.
 ## Synopsis
 
 ```usage
-usage: dvc list [-h] [-q | -v] [-R|-T] [-L depth] [--dvc-only]
-                [--json] [--rev [<commit>]]
-                [--config <path>] [--remote <name>]
-                [--remote-config [<name>=<value> ...]]
-                [--size] [--show-hash]
-                url [path]
-
-positional arguments:
-  url            Location of DVC or Git repository to list from
-  path           Path to a file or directory in the repository
+dvc list [-R|-T] [-L <depth>] [--dvc-only] [--json] [--rev <commit>]
+         [--config <path>] [--remote <name>]
+         [--remote-config [<name>=<value> ...]] [--size] [--show-hash]
+         <url> [<path>]
 ```
 
 ## Description

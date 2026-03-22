@@ -12,13 +12,7 @@ remove data files stored remotely. See `dvc gc --cloud` for that.
 ## Synopsis
 
 ```usage
-usage: dvc remote remove [-h]
-                         [--global | --system | --project | --local]
-                         [-q | -v]
-                         name
-
-positional arguments:
-  name           Name of the remote to remove
+dvc remote remove [--global | --system | --project | --local] <name>
 ```
 
 ## Description

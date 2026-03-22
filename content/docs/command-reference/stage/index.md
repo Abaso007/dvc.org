@@ -6,12 +6,7 @@ A set of commands to add and list <abbr>stages</abbr>:
 ## Synopsis
 
 ```usage
-usage: dvc stage [-h] [-q | -v] {add,list} ...
-
-positional arguments:
-  COMMAND
-    add         Create stage.
-    list        List stages.
+dvc stage {add,list}
 ```
 
 ## Description

@@ -18,10 +18,8 @@ Useful to find data to `dvc get-url` or `dvc import-url`.
 ## Synopsis
 
 ```usage
-usage: dvc list-url [-h] [-q | -v] [-R|-T] [-L depth] [--size] [--fs-config <name>=<value>] url
-
-positional arguments:
-  url              (See supported URLs in the description)
+dvc list-url [-R|-T] [-L <depth>] [--size] [--fs-config <name>=<value>]
+             <url>
 ```
 
 ## Description

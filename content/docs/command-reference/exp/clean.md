@@ -5,7 +5,7 @@ Cleanup experiments temporary files.
 ## Synopsis
 
 ```usage
-usage: dvc exp clean [-h] [-q | -v]
+dvc exp clean
 ```
 
 ## Description

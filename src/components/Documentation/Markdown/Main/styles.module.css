@@ -87,27 +87,161 @@
       margin-top: 0;
     }
 
-    /* Clickable flag links in usage blocks */
+    /* Clickable flag links in Prism usage blocks */
     a.token.arg {
-      color: var(--color-light-blue);
+      color: var(--color-azure);
       text-decoration: underline;
-      text-decoration-color: rgb(238 244 248 / 35%);
-      text-underline-offset: 2px;
-      cursor: pointer;
+      text-decoration-color: rgb(19 173 199 / 40%);
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+      border-radius: 3px;
       transition:
         color 0.15s ease,
-        text-decoration-color 0.15s ease;
+        text-decoration-color 0.15s ease,
+        background-color 0.15s ease;
     }
 
     a.token.arg:hover,
     a.token.arg:focus-visible {
-      color: var(--color-light-blue);
-      text-decoration-color: var(--default-blue);
+      color: #fff;
+      text-decoration-color: rgb(255 255 255 / 60%);
+      background-color: rgb(255 255 255 / 8%);
     }
 
     :global(li.arg-target-flash) {
       background-color: rgb(148 93 214 / 10%);
       border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :global(li.arg-target-flash) {
+        transition: none;
+      }
+    }
+
+    /* Synopsis essential form (generated at build time by gatsby-remark-synopsis) */
+    [data-synopsis] {
+      @apply font-mono;
+
+      display: block;
+      padding: 0.7em 1em;
+      background-color: var(--color-light-blue);
+      border: 1px solid var(--color-light-gray);
+      border-radius: 6px;
+      font-size: 0.875rem;
+      color: var(--color-gray-dark);
+      margin: 0.5em 0;
+      overflow-x: auto;
+
+      > code {
+        background: none;
+        padding: 0;
+        border: none;
+        font-size: inherit;
+        display: block;
+        line-height: 1.8;
+        white-space: normal;
+
+        /* Hanging indent: wrapped lines indent to command name length */
+        padding-left: var(--cmd-len, 3ch);
+        text-indent: calc(-1 * var(--cmd-len, 3ch));
+      }
+    }
+
+    [data-synopsis-cmd] {
+      color: var(--color-black);
+      font-weight: 600;
+    }
+
+    [data-synopsis-flag],
+    [data-synopsis-subcmd] {
+      color: var(--color-teal);
+      text-decoration: underline;
+      text-decoration-color: rgb(14 124 145 / 30%);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      white-space: nowrap;
+      transition:
+        color 0.15s ease,
+        text-decoration-color 0.15s ease;
+
+      &:hover {
+        color: var(--color-teal-hover);
+        text-decoration-color: rgb(14 124 145 / 60%);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-teal);
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    [data-synopsis-required] {
+      font-weight: 500;
+    }
+
+    [data-synopsis-value] {
+      color: var(--color-orange);
+      font-style: italic;
+    }
+
+    [data-synopsis-either] {
+      color: var(--color-gray-dark);
+      white-space: nowrap;
+    }
+
+    [data-synopsis-positionals] {
+      color: var(--color-black);
+      white-space: nowrap;
+    }
+
+    [data-synopsis-sep] {
+      color: var(--color-gray);
+    }
+
+    [data-synopsis-subcmds] {
+      display: inline;
+      white-space: nowrap;
+    }
+
+    /* Subcommand synopses: single scrollable line, no wrapping */
+    [data-synopsis-has-subcmds] > code {
+      white-space: nowrap;
+      padding-left: 0;
+      text-indent: 0;
+    }
+
+    /* Overflow fade hint for usage blocks */
+    :global(.gatsby-highlight[data-language='usage']) {
+      position: relative;
+    }
+
+    :global(.gatsby-highlight[data-language='usage'])::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--bg-dark, #1a1e23)
+      );
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      border-radius: 0 0.3em 0.3em 0;
+    }
+
+    :global(.gatsby-highlight[data-language='usage'].has-overflow)::after {
+      opacity: 1;
     }
 
     :global(a.gatsby-resp-image-link)::after {

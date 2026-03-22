@@ -6,7 +6,7 @@ current working directory.
 ## Synopsis
 
 ```usage
-usage: dvc init [-h] [-q | -v] [--no-scm] [-f] [--subdir] [directory]
+dvc init [--no-scm] [-f] [--subdir] [<directory>]
 ```
 
 ## Description

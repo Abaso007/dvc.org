@@ -7,14 +7,9 @@ Download files or directories from [remote storage] to the <abbr>cache</abbr>.
 ## Synopsis
 
 ```usage
-usage: dvc fetch [-h] [-q | -v] [-j <number>] [-r <name>] [-a] [-T]
-                 [--all-commits] [-d] [-R] [--run-cache | --no-run-cache]
-                 [--max-size <bytes>] [--type {metrics,plots}]
-                 [targets [targets ...]]
-
-positional arguments:
-  targets       Limit command scope to these tracked files/directories,
-                .dvc files, or stage names.
+dvc fetch [-j <number>] [-r <name>] [-a] [-T] [--all-commits] [-d] [-R]
+          [--run-cache | --no-run-cache] [--max-size <bytes>]
+          [--type {metrics,plots}] [targets ...]
 ```
 
 ## Description

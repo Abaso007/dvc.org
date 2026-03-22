@@ -8,15 +8,9 @@ directory.
 ## Synopsis
 
 ```usage
-usage: dvc get [-h] [-q | -v] [-o <path>] [--rev <commit>]
-               [--show-url] [-j <number>] [-f]
-               [--config <path>] [--remote <name>]
-               [--remote-config [<name>=<value> ...]]
-               url path
-
-positional arguments:
-  url              Location of DVC or Git repository to download from
-  path             Path to a file or directory within the repository
+dvc get [-o <path>] [--rev <commit>] [--show-url] [-j <number>] [-f]
+        [--config <path>] [--remote <name>]
+        [--remote-config [<name>=<value> ...]] <url> <path>
 ```
 
 ## Description

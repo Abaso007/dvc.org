@@ -5,7 +5,7 @@ Display the DVC version along with environment and project information.
 ## Synopsis
 
 ```usage
-usage: dvc version [-h] [-q | -v]
+dvc version
 ```
 
 ## Description

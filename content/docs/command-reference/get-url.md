@@ -9,11 +9,7 @@ Download a file or directory from a supported URL (for example `s3://`,
 ## Synopsis
 
 ```usage
-usage: dvc get-url [-h] [-q | -v] [-j <number>] [-f] [--fs-config <name>=<value>] url [out]
-
-positional arguments:
-  url            (See supported URLs in the description.)
-  out            Destination path to put files in.
+dvc get-url [-j <number>] [-f] [--fs-config <name>=<value>] <url> [<out>]
 ```
 
 ## Description

@@ -10,7 +10,7 @@ global [DVC configuration].
 ## Synopsis
 
 ```usage
-usage: dvc studio login [-h] [-q | -v] [-H <hostname>] [-s <scopes>] [-n <name>] [-d]
+dvc studio login [-H <hostname>] [-s <scopes>] [-n <name>] [-d]
 ```
 
 ## Description

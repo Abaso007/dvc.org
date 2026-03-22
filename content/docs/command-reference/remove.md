@@ -8,10 +8,7 @@ optionally delete them).
 ## Synopsis
 
 ```usage
-usage: dvc remove [-h] [-q | -v] [--outs] targets [targets ...]
-
-positional arguments:
-  targets        stages (found in dvc.yaml) or .dvc files to remove.
+dvc remove [--outs] <targets> ...
 ```
 
 ## Description

@@ -11,14 +11,7 @@ The remote storage URL is not changed by this command.
 ## Synopsis
 
 ```usage
-usage: dvc remote rename [-h]
-                         [--global | --system | --project | --local]
-                         [-q | -v]
-                         name new
-
-positional arguments:
-  name           Remote to be renamed
-  new            New name of the remote
+dvc remote rename [--global | --system | --project | --local] <name> <new>
 ```
 
 ## Description
