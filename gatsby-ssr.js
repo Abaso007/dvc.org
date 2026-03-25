@@ -53,6 +53,7 @@ exports.onRenderBody = ({ setPreBodyComponents }) => {
     React.createElement('script', {
       key: 'theme-mode-init',
       id: 'theme-mode-init',
+      'data-uc-allowed': 'true',
       dangerouslySetInnerHTML: { __html: themeInitScript }
     })
   ])
