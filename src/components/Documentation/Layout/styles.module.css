@@ -317,8 +317,6 @@
 
 .innerSidebar {
   @apply flex flex-col sticky top-0 max-h-screen z-20 pt-14;
-
-  overflow: auto clip;
 }
 
 .backdrop {

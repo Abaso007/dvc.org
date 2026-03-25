@@ -1,5 +1,5 @@
 .menu {
-  @apply relative top-0 h-full overflow-y-auto overflow-x-hidden px-2;
+  @apply relative top-0 flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-2;
 
   &.isScrollHidden {
     .ps__rail-y {
