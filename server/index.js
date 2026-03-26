@@ -103,6 +103,10 @@ const serveMiddleware = async (req, res) => {
         headers: [{ key: 'Cache-Control', value: cacheForever }]
       },
       {
+        source: 'fonts/**',
+        headers: [{ key: 'Cache-Control', value: cacheForever }]
+      },
+      {
         source: '**/*.@(jpg|jpeg|gif|png|svg)',
         headers: [{ key: 'Cache-Control', value: 'max-age=86400' }]
       }
