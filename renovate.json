@@ -5,7 +5,6 @@
     "schedule:monthly",
     "group:linters",
     "group:postcss",
-    ":reviewer(team:websites)",
     ":enableVulnerabilityAlerts",
     ":label(dependencies)",
     ":pinAllExceptPeerDependencies"
@@ -24,6 +23,17 @@
     }
   ],
   "packageRules": [
+    {
+      "groupName": "minor and patch updates",
+      "description": "Catch-all for remaining minor/patch — must be first so specific groups below override it",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["*"],
+      "automerge": true,
+      "automergeType": "branch",
+      "prPriority": -1,
+      "dependencyDashboardApproval": false
+    },
     {
       "description": "DVC version bump — PR immediately on new release",
       "matchPackageNames": ["dvc"],
@@ -108,14 +118,11 @@
       "dependencyDashboardApproval": false
     },
     {
-      "groupName": "minor and patch updates",
-      "description": "Catch-all for remaining minor/patch",
-      "matchDatasources": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchPackageNames": ["*"],
+      "groupName": "github-actions",
+      "matchManagers": ["github-actions"],
+      "schedule": ["every weekend"],
       "automerge": true,
       "automergeType": "branch",
-      "prPriority": -1,
       "dependencyDashboardApproval": false
     }
   ]
