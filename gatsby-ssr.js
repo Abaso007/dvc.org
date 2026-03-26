@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const React = require('react')
+import { wrapPageElement } from './gatsby-shared'
 
 const themeInitScript = `
 void function() {
@@ -48,14 +47,28 @@ void function() {
 }();
 `
 
-exports.onRenderBody = ({ setPreBodyComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+  const preloadFonts = ['brandon_reg', 'brandon_med', 'brandon_bld']
+  setHeadComponents(
+    preloadFonts.map(name => (
+      <link
+        key={`preload-${name}`}
+        rel="preload"
+        href={`/fonts/${name}.woff2`}
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    ))
+  )
   setPreBodyComponents([
-    React.createElement('script', {
-      key: 'theme-mode-init',
-      id: 'theme-mode-init',
-      'data-uc-allowed': 'true',
-      dangerouslySetInnerHTML: { __html: themeInitScript }
-    })
+    <script
+      key="theme-mode-init"
+      id="theme-mode-init"
+      data-uc-allowed="true"
+      dangerouslySetInnerHTML={{ __html: themeInitScript }}
+    />
   ])
 }
-exports.wrapPageElement = require('./gatsby-shared').wrapPageElement
+
+export { wrapPageElement }
