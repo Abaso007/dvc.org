@@ -7,7 +7,8 @@
     "group:postcss",
     ":enableVulnerabilityAlerts",
     ":label(dependencies)",
-    ":pinAllExceptPeerDependencies"
+    ":pinAllExceptPeerDependencies",
+    "helpers:pinGitHubActionDigests"
   ],
   "prConcurrentLimit": 3,
   "rebaseWhen": "conflicted",
@@ -74,15 +75,6 @@
       "matchDatasources": ["npm"]
     },
     {
-      "groupName": "styling",
-      "matchPackageNames": [
-        "tailwindcss",
-        "tailwindcss-animate",
-        "autoprefixer"
-      ],
-      "matchDatasources": ["npm"]
-    },
-    {
       "groupName": "server",
       "matchPackageNames": [
         "express",
@@ -94,21 +86,6 @@
         "permissions-policy",
         "nodemon"
       ],
-      "matchDatasources": ["npm"]
-    },
-    {
-      "groupName": "dev tools",
-      "matchPackageNames": ["vitest", "lint-staged", "husky", "typescript"],
-      "matchDatasources": ["npm"]
-    },
-    {
-      "groupName": "babel",
-      "matchPackageNames": ["@babel/*"],
-      "matchDatasources": ["npm"]
-    },
-    {
-      "groupName": "reach-ui",
-      "matchPackageNames": ["@reach/*"],
       "matchDatasources": ["npm"]
     },
     {
