@@ -1,4 +1,3 @@
-import includes from 'lodash/includes'
 import { useState, useEffect } from 'react'
 
 import useGlossary from '../../../../utils/front/glossary'
@@ -18,10 +17,9 @@ const Tooltip: React.FC<{ text: string }> = ({ text }) => {
   useEffect(() => {
     glossary.contents.forEach(glossaryItem => {
       if (
-        includes(
-          glossaryItem.match.map(word => word.toLowerCase()),
-          text.replace(/\n/g, ' ').toLowerCase()
-        )
+        glossaryItem.match
+          .map(word => word.toLowerCase())
+          .includes(text.replace(/\n/g, ' ').toLowerCase())
       ) {
         setState({
           description: glossaryItem.desc,

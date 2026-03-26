@@ -1,7 +1,5 @@
-import cn from 'classnames'
-import includes from 'lodash/includes'
+import cn from 'clsx/lite'
 import { SyntheticEvent, useEffect, useState } from 'react'
-import { Collapse } from 'react-collapse'
 
 import { ReactComponent as ExternalLinkIcon } from '../../../../../images/external-link.svg'
 import { getPathWithSource } from '../../../../../utils/shared/sidebar'
@@ -34,11 +32,11 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
   type
 }) => {
   const [isExpanded, setIsExpanded] = useState(
-    activePaths && includes(activePaths, path)
+    activePaths && activePaths.includes(path)
   )
 
   useEffect(() => {
-    setIsExpanded(activePaths && includes(activePaths, path))
+    setIsExpanded(activePaths && activePaths.includes(path))
   }, [activePaths, path])
 
   const isCurrent = currentPath === path
@@ -135,8 +133,11 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
     <>
       {parentElement}
       {children && (
-        <span hidden={!isExpanded}>
-          <Collapse isOpened={!!isExpanded}>
+        <div
+          className={styles.collapse}
+          data-expanded={isExpanded || undefined}
+        >
+          <div className={styles.collapseInner}>
             {children.map(item => (
               <SidebarMenuItem
                 key={item.path}
@@ -146,8 +147,8 @@ const SidebarMenuItem: React.FC<ISidebarMenuItemProps> = ({
                 {...item}
               />
             ))}
-          </Collapse>
-        </span>
+          </div>
+        </div>
       )}
     </>
   )

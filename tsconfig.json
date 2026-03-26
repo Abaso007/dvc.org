@@ -20,11 +20,7 @@
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "alwaysStrict": true,
-    "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/static/*": ["./static/*"]
-    }
+    "noEmit": true
   },
   "include": ["./src/**/*", "./*.mjs", "./*.tsx"]
 }

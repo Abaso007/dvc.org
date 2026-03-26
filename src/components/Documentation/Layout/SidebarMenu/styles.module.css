@@ -10,9 +10,19 @@
     }
   }
 
-  :global(.ReactCollapse--collapse) {
-    transition: height 500ms;
+  .collapse {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
     padding-left: 10px;
+
+    &[data-expanded] {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .collapseInner {
+    overflow: hidden;
   }
 }
 

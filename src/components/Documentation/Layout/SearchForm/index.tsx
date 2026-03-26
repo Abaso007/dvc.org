@@ -1,4 +1,3 @@
-import Promise from 'promise-polyfill'
 import { useEffect, useState } from 'react'
 
 import { loadResource } from '../../../../utils/front/resources'

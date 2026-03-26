@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { useCallback, useId, useState } from 'react'
 
 import {

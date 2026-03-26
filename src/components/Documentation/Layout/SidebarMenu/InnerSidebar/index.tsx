@@ -1,5 +1,3 @@
-import includes from 'lodash/includes'
-
 import { SidebarItemClickHandler } from '..'
 import { structure } from '../../../../../utils/shared/sidebar'
 import SidebarMenuItem from '../Item'
@@ -24,9 +22,7 @@ const SidebarSections: React.FC<IInnerSidebarProps> = ({
             key={item.path}
             currentPath={currentPath}
             activePaths={
-              activePaths && includes(activePaths, item.path)
-                ? activePaths
-                : undefined
+              activePaths?.includes(item.path) ? activePaths : undefined
             }
             onClick={onClick}
             {...item}

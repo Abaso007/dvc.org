@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 
 import { AlertContent } from './content'
 import * as styles from './styles.module.css'

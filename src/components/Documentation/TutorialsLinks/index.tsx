@@ -1,6 +1,5 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import startCase from 'lodash/startCase'
-import topairs from 'lodash/toPairs'
 
 import Link from '../../Link'
 import * as sharedStyles from '../styles.module.css'
@@ -19,7 +18,7 @@ const TutorialsLinks: React.FC<ITutorialsLinksProps> = ({
   tutorials
 }) => (
   <>
-    {topairs(tutorials).map(([type, href]) => {
+    {Object.entries(tutorials).map(([type, href]) => {
       return (
         <Link
           href={href}

@@ -1,5 +1,4 @@
-import cn from 'classnames'
-import includes from 'lodash/includes'
+import cn from 'clsx/lite'
 import { useState, useCallback } from 'react'
 import { useInView } from 'react-intersection-observer'
 
@@ -18,7 +17,7 @@ const LayoutHeader: React.FC<ILayoutModifiable> = ({ modifiers }) => {
   const handleToggle = useCallback(() => setOpened(prev => !prev), [])
   const handleClose = useCallback(() => setOpened(false), [])
 
-  const hasCollapsedModifier = includes(modifiers, LayoutModifiers.Collapsed)
+  const hasCollapsedModifier = modifiers?.includes(LayoutModifiers.Collapsed)
   const collapsed = opened || hasCollapsedModifier || scrolled
 
   return (

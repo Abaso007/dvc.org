@@ -1,8 +1,6 @@
 import { createRequire } from 'module'
 import path from 'path'
 
-import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin'
-
 import { DOCS_PREFIX } from './src/consts.js'
 import { setPageContext } from './src/gatsby/common.js'
 import createPagesImpl from './src/gatsby/createPages.js'
@@ -108,14 +106,6 @@ export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
   if (stage === 'build-javascript') {
     const config = getConfig()
 
-    // Add polyfills
-    config.entry.app = [
-      'promise-polyfill/src/polyfill',
-      'isomorphic-fetch',
-      'raf-polyfill',
-      ...[].concat(config.entry.app)
-    ]
-
     const miniCssExtractPlugin = config.plugins.find(
       plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
     )
@@ -124,9 +114,4 @@ export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
     }
     actions.replaceWebpackConfig(config)
   }
-  actions.setWebpackConfig({
-    resolve: {
-      plugins: [new TsconfigPathsPlugin()]
-    }
-  })
 }

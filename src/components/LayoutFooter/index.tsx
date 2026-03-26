@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 
 import { ReactComponent as LogoSVG } from '../../../static/img/dvc_by_lakefs_white.svg'
 import { externalUrls, mainSiteUrls, docUrls } from '../../consts.js'

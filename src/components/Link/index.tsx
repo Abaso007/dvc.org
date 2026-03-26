@@ -1,6 +1,5 @@
 import { useLocation } from '@gatsbyjs/reach-router'
 import { Link as GatsbyLink } from 'gatsby'
-import { URL } from 'iso-url'
 
 import { mainSiteUrls } from '../../consts.js'
 import { getRedirect } from '../../utils/shared/redirects'
@@ -38,8 +37,6 @@ const ResultLinkComponent: React.FC<ILinkProps> = ({
   // that have anchors should be okay.
   const hrefIsRelativeFragment = href.startsWith('#')
 
-  const url = new URL(href)
-
   if (
     download ||
     !hrefIsRelative ||
@@ -52,7 +49,7 @@ const ResultLinkComponent: React.FC<ILinkProps> = ({
        noreferrer', but leave explicitly defined rels alone.
        Do the same with `target=_blank`
     */
-    if (!hrefIsRelative && url.origin !== mainSiteUrls.home) {
+    if (!hrefIsRelative && new URL(href).origin !== mainSiteUrls.home) {
       if (typeof rel !== 'string') {
         rel = 'noopener noreferrer'
       }
@@ -96,16 +93,18 @@ const Link: React.FC<ILinkProps> = ({
   }
   const currentLocation = useLocation()
 
-  const location = new URL(href)
+  if (currentLocation.origin && !optOutPreRedirect) {
+    const location = new URL(href, currentLocation.origin)
 
-  if (location.host === currentLocation.host && !optOutPreRedirect) {
-    // Replace link href with redirect if it exists
-    const [, redirectUrl] = getRedirect(location.host, location.pathname)
+    if (location.host === currentLocation.host) {
+      // Replace link href with redirect if it exists
+      const [, redirectUrl] = getRedirect(location.host, location.pathname)
 
-    if (redirectUrl) {
-      href = isRelative(redirectUrl)
-        ? redirectUrl + currentLocation.search
-        : redirectUrl
+      if (redirectUrl) {
+        href = isRelative(redirectUrl)
+          ? redirectUrl + currentLocation.search
+          : redirectUrl
+      }
     }
   }
 

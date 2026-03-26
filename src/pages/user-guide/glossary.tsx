@@ -1,13 +1,12 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { HeadProps } from 'gatsby'
 
-import DocLayout from '@/components/Documentation/Layout'
-import DocWithJsx from '@/components/Documentation/WithJSX'
-import AutoLinkElement from '@/components/Documentation/WithJSX/AutoLinkElement'
-import MainLayout from '@/components/MainLayout'
-import SEO from '@/components/SEO'
-
-import useGlossary from '@/utils/front/glossary'
+import DocLayout from '../../components/Documentation/Layout'
+import DocWithJsx from '../../components/Documentation/WithJSX'
+import AutoLinkElement from '../../components/Documentation/WithJSX/AutoLinkElement'
+import MainLayout from '../../components/MainLayout'
+import SEO from '../../components/SEO'
+import useGlossary from '../../utils/front/glossary'
 
 const Glossary = () => {
   const { contents } = useGlossary()

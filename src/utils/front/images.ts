@@ -1,5 +1,3 @@
-import Promise from 'promise-polyfill'
-
 export const getImages = (node: Element): Array<HTMLImageElement> =>
   Array.from(node.querySelectorAll('img')).filter(imgNode => !!imgNode.src)
 

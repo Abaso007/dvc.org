@@ -1,7 +1,6 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { ReactNode, useEffect } from 'react'
 
-import 'reset-css'
 import '../../styles/global.css'
 import './base.css'
 import './fonts.css'

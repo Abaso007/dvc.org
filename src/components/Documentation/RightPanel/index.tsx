@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import throttle from 'lodash/throttle'
 import { useState, useEffect, useRef, useCallback } from 'react'
 

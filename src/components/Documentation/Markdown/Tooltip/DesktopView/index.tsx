@@ -1,7 +1,7 @@
-import { Portal } from '@reach/portal'
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import throttle from 'lodash/throttle'
 import { useRef, useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 import * as styles from './styles.module.css'
 
@@ -122,8 +122,8 @@ const DesktopView: React.FC<IDesktopViewProps> = ({
 
   return (
     <>
-      {isVisible && (
-        <Portal>
+      {isVisible &&
+        createPortal(
           <div
             ref={tooltipRef}
             className={cn(
@@ -142,9 +142,9 @@ const DesktopView: React.FC<IDesktopViewProps> = ({
               className={cn('markdown-body', styles.tooltipBody)}
               dangerouslySetInnerHTML={{ __html: description }}
             />
-          </div>
-        </Portal>
-      )}
+          </div>,
+          document.body
+        )}
       <span
         ref={toggleRef}
         className={styles.highlightedText}

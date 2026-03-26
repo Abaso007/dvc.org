@@ -138,12 +138,6 @@ const plugins = [
             quotes: false
           }
         },
-        {
-          resolve: 'gatsby-remark-embed-gist',
-          options: {
-            gistDefaultCssInclude: false
-          }
-        },
         'gatsby-remark-external-links',
         {
           resolve: 'gatsby-remark-autolink-headers',
@@ -162,18 +156,9 @@ const plugins = [
             loading: 'auto'
           }
         },
-        'gatsby-remark-responsive-iframe',
         require.resolve('./src/plugins/resize-image-plugin'),
         require.resolve('./src/plugins/external-link-plugin'),
         require.resolve('./src/plugins/null-link-plugin'),
-        // moving this plugin after external-link-plugin to allow images to be copied to public folder
-        {
-          resolve: 'gatsby-remark-copy-relative-linked-files',
-          options: {
-            filename: ({ name, hash, extension }) =>
-              `${name}-${hash}.${extension}`
-          }
-        }
       ]
     }
   },
@@ -210,7 +195,6 @@ const plugins = [
     options: sentryConfig
   },
   'gatsby-plugin-catch-links',
-  'gatsby-plugin-twitter',
   'gatsby-transformer-remark-frontmatter',
   {
     resolve: 'gatsby-plugin-manifest',

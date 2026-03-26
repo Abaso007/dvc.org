@@ -1,8 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import remarkParse from 'remark-parse'
-import { unified } from 'unified'
+import { remark } from 'remark'
 import { visit } from 'unist-util-visit'
 import { describe, it, expect } from 'vitest'
 
@@ -162,7 +161,7 @@ describe('parseUsage', () => {
 // ---------------------------------------------------------------------------
 
 function extractUsageBlocks(dir) {
-  const parser = unified().use(remarkParse)
+  const parser = remark()
   const blocks = []
   const entries = fs.readdirSync(dir, { withFileTypes: true })
   for (const entry of entries) {

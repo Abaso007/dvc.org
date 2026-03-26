@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { logEvent } from '../../../utils/front/plausible'

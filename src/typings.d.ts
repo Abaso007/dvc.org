@@ -23,9 +23,3 @@ declare module '*.mp4' {
   const src: string
   export default src
 }
-
-declare module 'iso-url' {
-  export const URL: typeof window.URL
-}
-
-declare module 'reset-css'

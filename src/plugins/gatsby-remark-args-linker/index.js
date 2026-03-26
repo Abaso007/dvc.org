@@ -1,9 +1,7 @@
-import _ from 'lodash'
-
 import { ARGS_REGEXP } from '../../consts.js'
 
 function patch(context, key, value) {
-  if (!_.has(context, key)) {
+  if (!Object.hasOwn(context, key)) {
     context[key] = value
   }
 

@@ -1,6 +1,6 @@
-import { Portal } from '@reach/portal'
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 
 import { isTriggeredFromKB } from '../../../../../utils/front/keyboard'
 
@@ -48,13 +48,10 @@ const MobileView: React.FC<IMobileViewProps> = ({
       >
         {text}
       </span>
-      {isVisible && (
-        <Portal>
-          {/* eslint-disable jsx-a11y/no-static-element-interactions*/}
-          {/* eslint-disable jsx-a11y/click-events-have-key-events */}
+      {isVisible &&
+        createPortal(
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events
           <div className={styles.modalBackground} onClick={closeTooltip}>
-            {/* eslint-enable jsx-a11y/no-static-element-interactions*/}
-            {/* eslint-enable jsx-a11y/click-events-have-key-events */}
             <div className={styles.modalContent}>
               <div
                 className={styles.closeContainer}
@@ -72,9 +69,9 @@ const MobileView: React.FC<IMobileViewProps> = ({
                 dangerouslySetInnerHTML={{ __html: description }}
               />
             </div>
-          </div>
-        </Portal>
-      )}
+          </div>,
+          document.body
+        )}
     </>
   )
 }

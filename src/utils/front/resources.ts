@@ -1,5 +1,3 @@
-import Promise from 'promise-polyfill'
-
 const createScript = (
   src: string,
   onload: () => void,

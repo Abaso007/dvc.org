@@ -101,6 +101,7 @@
 .triggerLabel {
   flex: 1;
   min-width: 0;
+  font-weight: 600;
   line-height: 1.45;
 }
 
@@ -123,21 +124,42 @@
     color-mix(in srgb, var(--callout-border) 70%, transparent);
 }
 
-.callout :global(.Collapsible__trigger) {
+.trigger {
   display: block;
+  width: calc(100% + 12px);
   margin: -4px -6px;
   padding: 4px 6px;
+  border: none;
   border-radius: 6px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   transition: color 160ms ease;
 }
 
-.callout :global(.Collapsible__trigger:hover) .chevron {
+.trigger:hover .chevron {
   color: var(--callout-accent);
 }
 
-.callout :global(.Collapsible__trigger:focus-visible) {
+.trigger:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--callout-accent) 28%, transparent);
   outline-offset: 2px;
+}
+
+.collapseBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease;
+
+  &[data-expanded] {
+    grid-template-rows: 1fr;
+  }
+}
+
+.collapseBodyInner {
+  overflow: hidden;
 }
 
 :global(body.dark-mode) .callout {
@@ -169,7 +191,7 @@
   }
 
   /* Brighter focus ring on dark backgrounds */
-  :global(.Collapsible__trigger:focus-visible) {
+  .trigger:focus-visible {
     outline-color: color-mix(in srgb, var(--callout-accent) 45%, transparent);
   }
 }

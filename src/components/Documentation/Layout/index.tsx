@@ -1,5 +1,4 @@
-import { SkipNavContent } from '@reach/skip-nav'
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import {
   PropsWithChildren,
   Reducer,
@@ -95,7 +94,7 @@ const Layout: React.FC<PropsWithChildren<{ currentPath: string }>> = ({
         </div>
       </div>
       <div className={styles.content}>
-        <SkipNavContent id="main-content" />
+        <div id="main-content" />
         {children}
       </div>
     </LayoutWidthContainer>

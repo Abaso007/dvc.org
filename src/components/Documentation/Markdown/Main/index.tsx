@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { PropsWithChildren } from 'react'
 
 import 'github-markdown-css/github-markdown.css'

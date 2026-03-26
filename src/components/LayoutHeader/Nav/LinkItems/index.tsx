@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import { useState, useRef, useEffect, useCallback } from 'react'
 
 import { ReactComponent as ArrowDownSVG } from '../../../../../static/img/arrow-down-icon.svg'

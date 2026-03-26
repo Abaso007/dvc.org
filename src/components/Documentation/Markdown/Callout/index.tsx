@@ -1,5 +1,5 @@
 import { useLocation } from '@gatsbyjs/reach-router'
-import cn from 'classnames'
+import cn from 'clsx/lite'
 import {
   AlertTriangle,
   BookOpen,
@@ -12,15 +12,7 @@ import {
   Lightbulb,
   Settings
 } from 'lucide-react'
-import {
-  FC,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-  useEffect,
-  useState
-} from 'react'
-import Collapsible from 'react-collapsible'
+import { FC, PropsWithChildren, ReactNode, useEffect, useState } from 'react'
 
 import * as styles from './styles.module.css'
 
@@ -100,34 +92,37 @@ const Callout: FC<PropsWithChildren<CalloutProps>> = ({
   if (collapsible) {
     const triggerEl = triggerContent || title
 
-    const trigger = (
-      <span className={styles.triggerInner}>
-        {IconComponent && (
-          <span className={styles.icon}>
-            <IconComponent size={18} />
-          </span>
-        )}
-        <span className={styles.triggerLabel}>{triggerEl}</span>
-        <ChevronDown
-          size={18}
-          className={cn(styles.chevron, isOpen && styles.chevronOpen)}
-        />
-      </span>
-    ) as unknown as ReactElement
-
     return (
       <div id={id} className={id ? 'collapsableDiv' : undefined}>
         {anchorLink}
         <div className={cn(styles.callout, styles[resolvedType])}>
-          <Collapsible
-            open={isOpen}
-            onOpening={() => setIsOpen(true)}
-            onClosing={() => setIsOpen(false)}
-            trigger={trigger}
-            transitionTime={200}
+          <button
+            type="button"
+            className={styles.trigger}
+            onClick={() => setIsOpen(prev => !prev)}
+            aria-expanded={isOpen}
           >
-            <div className={styles.collapsibleContent}>{children}</div>
-          </Collapsible>
+            <span className={styles.triggerInner}>
+              {IconComponent && (
+                <span className={styles.icon}>
+                  <IconComponent size={18} />
+                </span>
+              )}
+              <span className={styles.triggerLabel}>{triggerEl}</span>
+              <ChevronDown
+                size={18}
+                className={cn(styles.chevron, isOpen && styles.chevronOpen)}
+              />
+            </span>
+          </button>
+          <div
+            className={styles.collapseBody}
+            data-expanded={isOpen || undefined}
+          >
+            <div className={styles.collapseBodyInner}>
+              <div className={styles.collapsibleContent}>{children}</div>
+            </div>
+          </div>
         </div>
       </div>
     )

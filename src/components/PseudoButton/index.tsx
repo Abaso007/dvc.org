@@ -1,4 +1,4 @@
-import cn from 'classnames'
+import cn from 'clsx/lite'
 
 import Link, { ILinkProps } from '../Link'
 
