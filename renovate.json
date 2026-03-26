@@ -92,6 +92,12 @@
       "dependencyDashboardApproval": false
     },
     {
+      "description": "Keep Node as major-only (don't pin to exact version)",
+      "matchPackageNames": ["node"],
+      "matchUpdateTypes": ["pin"],
+      "enabled": false
+    },
+    {
       "groupName": "github-actions",
       "matchManagers": ["github-actions"],
       "schedule": ["every weekend"],
