@@ -10,7 +10,7 @@ plugins in `src/` and `plugins/`. `server/` is an Express production server that
 adds redirects, Plausible analytics proxy, Helmet security headers, and
 cache-control rules on top of the Gatsby static build.
 
-Docs served at https://dvc.org/doc (Heroku + CloudFront CDN).
+Docs served at https://doc.dvc.org (Heroku + CloudFront CDN).
 
 - `src/components/Link/index.tsx` has a static DVC `VERSION` that needs periodic
   updates.
