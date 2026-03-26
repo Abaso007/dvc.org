@@ -2,6 +2,7 @@
 
 .logoLink {
   color: var(--text-primary);
+  margin-right: auto;
 
   &:hover,
   &:focus {

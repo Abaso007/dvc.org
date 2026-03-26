@@ -294,7 +294,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 21;
     visibility: hidden;
     transform: translateX(-100%);
     transition:
@@ -328,7 +328,7 @@
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 1;
+    z-index: 20;
     background-color: var(--docs-backdrop-bg);
     opacity: 0;
     pointer-events: none;

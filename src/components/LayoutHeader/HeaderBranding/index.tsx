@@ -1,5 +1,3 @@
-import cn from 'classnames'
-
 import { mainSiteUrls } from '../../../consts.js'
 import { ReactComponent as LogoSVG } from '../../../images/dvc_by_lakefs.svg'
 import Link from '../../Link'
@@ -15,7 +13,7 @@ export const HeaderBranding: React.FC<HeaderBrandingProps> = ({ onClick }) => (
     <Link
       onClick={onClick}
       href={mainSiteUrls.home}
-      className={cn(styles.logoLink, 'mr-auto')}
+      className={styles.logoLink}
       title="DVC"
       aria-label="DVC"
     >

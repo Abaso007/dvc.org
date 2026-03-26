@@ -20099,7 +20099,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"title-case@npm:3.0.3, title-case@npm:^3.0.3":
+"title-case@npm:4.3.2":
+  version: 4.3.2
+  resolution: "title-case@npm:4.3.2"
+  checksum: 10c0/f040c5b0586e3a4ac5881e59ac060ebfa56dae611b0d513ad211fa7f92597d418395fa902fe9d7ee49f98e557e88421e274680b22a3b04dd1ce1c577225444d3
+  languageName: node
+  linkType: hard
+
+"title-case@npm:^3.0.3":
   version: 3.0.3
   resolution: "title-case@npm:3.0.3"
   dependencies:
@@ -21517,7 +21524,7 @@ __metadata:
     stylelint-config-standard: "npm:40.0.0"
     tailwindcss: "npm:4.2.2"
     tailwindcss-animate: "npm:1.0.7"
-    title-case: "npm:3.0.3"
+    title-case: "npm:4.3.2"
     tsconfig-paths-webpack-plugin: "npm:4.2.0"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:8.57.0"
