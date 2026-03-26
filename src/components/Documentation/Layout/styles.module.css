@@ -1,3 +1,5 @@
+@reference "../../../styles/global.css";
+
 .container {
   --docs-sidebar-bg: var(--bg-subtle);
   --docs-content-bg: #fff;
@@ -100,7 +102,7 @@
   z-index: 2;
   height: 100%;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     padding: 0 15px;
     background-color: var(--docs-content-bg);
     z-index: 11; /* above footer (z-10) so fixed hamburger stays visible */
@@ -120,7 +122,7 @@
     transition: background-color var(--theme-transition-duration)
       var(--theme-transition-easing);
 
-    @media screen(smMax) {
+    @media (width <= 768px) {
       display: none;
     }
   }
@@ -139,7 +141,7 @@
     transition: background-color var(--theme-transition-duration)
       var(--theme-transition-easing);
 
-    @media screen(smMax) {
+    @media (width <= 768px) {
       display: none;
     }
   }
@@ -286,7 +288,7 @@
   transition: background-color var(--theme-transition-duration)
     var(--theme-transition-easing);
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     position: fixed;
     top: 0;
     left: 0;
@@ -322,7 +324,7 @@
 .backdrop {
   display: none;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: block;
     position: fixed;
     inset: 0;
@@ -352,7 +354,7 @@
   transition: background-color var(--theme-transition-duration)
     var(--theme-transition-easing);
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     max-width: 100%;
   }
 }

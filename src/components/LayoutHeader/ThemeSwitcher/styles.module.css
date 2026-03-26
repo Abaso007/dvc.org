@@ -1,3 +1,5 @@
+@reference "../../../styles/global.css";
+
 .button {
   position: relative;
   display: inline-flex;
@@ -49,7 +51,7 @@
     z-index: 10;
     transition: opacity 0.15s ease;
 
-    @media screen(smMax) {
+    @media (width <= 768px) {
       left: auto;
       right: 0;
       transform: none;

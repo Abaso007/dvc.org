@@ -2,10 +2,8 @@ import { createRequire } from 'module'
 import fs from 'fs'
 import path from 'path'
 
-import autoprefixer from 'autoprefixer'
+import tailwindcssPostcss from '@tailwindcss/postcss'
 import postcssNested from 'postcss-nested'
-import tailwindcss from 'tailwindcss'
-import tailwindNesting from 'tailwindcss/nesting/index.js'
 
 import 'dotenv/config'
 import './src/config/prismjs/dvc.js'
@@ -50,9 +48,8 @@ const argsLinkerPath = ['command-reference', 'ref', 'cli-reference']
 const sentry = true
 
 const postCssPlugins = [
-  tailwindNesting(postcssNested),
-  autoprefixer,
-  tailwindcss,
+  postcssNested,
+  tailwindcssPostcss(),
   makeGitHubMarkdownCssUseThemeAttribute
 ]
 

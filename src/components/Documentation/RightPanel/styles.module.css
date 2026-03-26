@@ -1,3 +1,5 @@
+@reference "../../../styles/global.css";
+
 .container {
   @apply mt-7 pt-14 sticky h-screen top-0;
 

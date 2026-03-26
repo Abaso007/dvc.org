@@ -1,5 +1,7 @@
+@reference "../../../styles/global.css";
+
 .hiddenScrollbar {
-  @media screen(smMax) {
+  @media (width <= 768px) {
     overflow-y: hidden;
   }
 }
@@ -16,7 +18,7 @@
     list-style-type: none;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -43,7 +45,7 @@
 .desktopThemeSwitcher {
   margin-right: 8px;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: none;
   }
 }
@@ -51,7 +53,7 @@
 .mobileControlsLeft {
   display: none;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: flex;
     align-items: center;
     position: fixed;
@@ -65,7 +67,7 @@
 .mobileControls {
   display: none;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: flex;
     align-items: center;
     gap: 2px;
@@ -83,13 +85,13 @@
 }
 
 .hamburgerButton {
-  @apply hover px-2;
+  @apply px-2;
 
   display: none;
   visibility: hidden;
   color: var(--text-primary);
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     position: relative;
     display: flex;
     visibility: visible;
@@ -103,12 +105,9 @@
     outline: none;
 
     &:hover {
+      opacity: 0.7;
       cursor: pointer;
     }
-  }
-
-  &.hamburgerOpened {
-    /* No repositioning needed — parent is fixed */
   }
 }
 
@@ -144,12 +143,12 @@
     opacity: 1;
   }
 
-  @media screen(mdMax) {
+  @media (width <= 1004px) {
     padding: 12px 24px;
     font-size: 14px;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: block;
     margin-top: auto;
     padding-top: 24px;

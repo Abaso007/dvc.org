@@ -1,8 +1,10 @@
+@reference "../../../../styles/global.css";
+
 .siteNav {
   display: none;
   border-bottom: 1px solid var(--docs-border-subtle);
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     display: block;
   }
 }

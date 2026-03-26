@@ -1,7 +1,9 @@
+@reference "../../styles/global.css";
+
 .mobile {
   display: none;
 
-  @media screen(xsMax) {
+  @media (width <= 572px) {
     display: initial;
   }
 }
@@ -9,7 +11,7 @@
 .desktop {
   display: initial;
 
-  @media screen(xsMax) {
+  @media (width <= 572px) {
     display: none;
   }
 }

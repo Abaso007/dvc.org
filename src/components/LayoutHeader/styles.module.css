@@ -1,3 +1,5 @@
+@reference "../../styles/global.css";
+
 html {
   @apply scroll-pt-14;
 }
@@ -28,7 +30,7 @@ html {
   will-change: height;
   padding: 0 24px;
 
-  @media screen(xsMax) {
+  @media (width <= 572px) {
     padding: 0 16px;
   }
 }

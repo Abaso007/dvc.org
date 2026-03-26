@@ -1,3 +1,5 @@
+@reference "../../styles/global.css";
+
 .container {
   @apply w-full;
 
@@ -9,11 +11,11 @@
     max-width: var(--layout-width-wide);
   }
 
-  @media screen(mdMax) {
+  @media (width <= 1004px) {
     max-width: 100%;
   }
 
-  @media screen(xsMax) {
+  @media (width <= 572px) {
     padding: 0 31px;
   }
 }

@@ -18,7 +18,7 @@
     "at-rule-no-unknown": [
       true,
       {
-        "ignoreAtRules": ["mixin", "tailwind", "screen"]
+        "ignoreAtRules": ["mixin", "tailwind", "screen", "config", "reference"]
       }
     ],
     "at-rule-no-deprecated": [
@@ -27,6 +27,8 @@
         "ignoreAtRules": ["apply"]
       }
     ],
+    "import-notation": null,
+    "no-invalid-position-at-import-rule": null,
     "custom-property-pattern": null,
     "selector-id-pattern": null,
     "selector-class-pattern": null,

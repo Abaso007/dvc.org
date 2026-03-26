@@ -1,21 +1,20 @@
+@reference "../../../../styles/global.css";
+
+@keyframes markdownFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 :global {
   #markdown-root {
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
+    animation-name: markdownFadeIn;
     animation-duration: 1s;
     animation-fill-mode: both;
-
-    :local {
-      animation-name: fadeIn;
-    }
   }
 
   .markdown-body {
@@ -368,10 +367,12 @@
       }
 
       a {
-        @apply focus;
-
         color: inherit;
         text-decoration: underline;
+
+        &:focus {
+          color: var(--color-orange);
+        }
 
         &::after {
           display: none;
@@ -430,7 +431,7 @@
   float: right;
   margin: 5px 0 0 10px;
 
-  @media screen(mdMax) {
+  @media (width <= 1004px) {
     margin: 0 0 15px;
   }
 
@@ -448,7 +449,7 @@
   color: var(--docs-button-text);
   text-decoration: none;
 
-  @media screen(mdMax) {
+  @media (width <= 1004px) {
     float: none;
     margin: 0 0 15px;
   }

@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { ReactNode, useEffect } from 'react'
 
 import 'reset-css'
+import '../../styles/global.css'
 import './base.css'
 import './fonts.css'
 import { handleFirstTab } from '../../utils/front/accessibility'

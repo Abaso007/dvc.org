@@ -1,3 +1,5 @@
+@reference "../../../../styles/global.css";
+
 .linksList {
   --nav-link-border: var(--border-subtle);
   --nav-link-text: var(--text-primary);
@@ -10,7 +12,7 @@
   margin: 0;
   padding: 0;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     flex-direction: column;
     align-items: stretch;
   }
@@ -24,7 +26,7 @@
     margin: 0;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     margin-left: 0;
 
     & + & {
@@ -34,8 +36,6 @@
 }
 
 .link {
-  @apply hover active focus;
-
   font-family: var(--font-base);
   font-weight: 400;
   font-size: 17px;
@@ -49,7 +49,18 @@
   background-color: transparent;
 
   &:hover {
+    opacity: 0.7;
     cursor: pointer;
+  }
+
+  &:focus {
+    color: var(--color-orange);
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
   }
 
   &.open {
@@ -67,7 +78,7 @@
     transition: transform 0.2s ease-in-out;
   }
 
-  @media screen(xl) {
+  @media (width >= 1200px) {
     font-size: 20px;
     line-height: 24px;
     padding: 20px 10px;
@@ -78,7 +89,7 @@
     }
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     font-size: inherit;
     line-height: inherit;
     width: calc(100% + 32px);
@@ -100,7 +111,7 @@ button.link:focus {
 }
 
 :global(.hideOnMdMax) {
-  @media screen(mdMax) {
+  @media (width <= 1004px) {
     display: none;
   }
 }

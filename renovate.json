@@ -10,28 +10,113 @@
     ":label(dependencies)",
     ":pinAllExceptPeerDependencies"
   ],
-  "prConcurrentLimit": 1,
+  "prConcurrentLimit": 3,
   "rebaseWhen": "conflicted",
   "dependencyDashboardApproval": true,
+  "minimumReleaseAge": "14 days",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^src/components/Link/index\\.tsx$"],
+      "matchStrings": [
+        "'(?<currentValue>\\d+\\.\\d+\\.\\d+)'\\s*//\\s*renovate:\\s*datasource=(?<datasource>.*?)\\s+depName=(?<depName>.*?)\\s*$"
+      ]
+    }
+  ],
   "packageRules": [
     {
-      "groupName": "minor and patch updates",
-      "matchDatasources": ["npm"],
-      "minimumReleaseAge": "7 days",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch",
-      "prPriority": 1,
+      "description": "DVC version bump — PR immediately on new release",
+      "matchPackageNames": ["dvc"],
+      "matchDatasources": ["pypi"],
+      "schedule": ["at any time"],
+      "minimumReleaseAge": "0 days",
+      "prPriority": 10,
       "dependencyDashboardApproval": false,
-      "matchPackageNames": ["*"]
+      "automerge": false
     },
     {
-      "minimumReleaseAge": "7 days",
+      "groupName": "gatsby",
+      "matchPackageNames": ["gatsby", "gatsby-*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "sentry",
+      "matchPackageNames": ["@sentry/*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Add typescript-eslint to the linters preset group",
+      "groupName": "linters",
+      "matchPackageNames": ["typescript-eslint"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "description": "Add unified ecosystem packages to the remark preset group",
+      "groupName": "remark",
+      "matchPackageNames": [
+        "unified",
+        "rehype-*",
+        "hast-util-*",
+        "unist-util-*"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "styling",
+      "matchPackageNames": [
+        "tailwindcss",
+        "tailwindcss-animate",
+        "autoprefixer"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "server",
+      "matchPackageNames": [
+        "express",
+        "compression",
+        "dotenv",
+        "helmet",
+        "serve-handler",
+        "http-proxy-middleware",
+        "permissions-policy",
+        "nodemon"
+      ],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "dev tools",
+      "matchPackageNames": ["vitest", "lint-staged", "husky", "typescript"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "babel",
+      "matchPackageNames": ["@babel/*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "reach-ui",
+      "matchPackageNames": ["@reach/*"],
+      "matchDatasources": ["npm"]
+    },
+    {
+      "groupName": "types",
+      "matchPackageNames": ["@types/*", "!@types/react", "!@types/react-dom"],
       "matchDatasources": ["npm"],
       "automerge": true,
       "automergeType": "branch",
-      "dependencyDashboardApproval": false,
-      "matchPackageNames": ["*"]
+      "dependencyDashboardApproval": false
+    },
+    {
+      "groupName": "minor and patch updates",
+      "description": "Catch-all for remaining minor/patch",
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchPackageNames": ["*"],
+      "automerge": true,
+      "automergeType": "branch",
+      "prPriority": -1,
+      "dependencyDashboardApproval": false
     }
   ]
 }

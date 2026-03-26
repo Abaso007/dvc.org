@@ -1,3 +1,5 @@
+@reference "../../../../styles/global.css";
+
 .popup {
   --nav-popup-bg: var(--bg-elevated);
   --nav-popup-text: var(--text-primary);
@@ -30,7 +32,7 @@
     visibility: visible;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     position: static;
     padding: 0 0 8px 20px;
     background-color: transparent;
@@ -66,7 +68,7 @@
     background-color: var(--nav-popup-hover-bg);
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     color: var(--nav-popup-text-muted);
     font-size: 18px;
     line-height: 22px;
@@ -91,7 +93,7 @@
     padding: 6px 12px 4px;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     width: 100%;
     white-space: normal;
 

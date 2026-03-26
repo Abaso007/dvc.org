@@ -1,10 +1,17 @@
-.logoLink {
-  @apply hover active;
+@reference "../../../styles/global.css";
 
+.logoLink {
   color: var(--text-primary);
 
+  &:hover,
   &:focus {
     opacity: 0.7;
+  }
+
+  &:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
   }
 
   svg {
@@ -12,7 +19,7 @@
     height: inherit;
   }
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     margin-left: 40px;
     max-width: calc(100vw - 152px);
 
@@ -29,8 +36,6 @@
 }
 
 .company {
-  @apply active hover;
-
   font-size: 15px;
   line-height: 20px;
   font-weight: 500;
@@ -49,15 +54,22 @@
   margin-right: auto;
   padding: 10px;
 
+  &:hover,
   &:focus {
     opacity: 0.7;
   }
 
-  @media screen(smMax) {
+  &:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+  }
+
+  @media (width <= 768px) {
     margin-left: 2px;
   }
 
-  @media screen(xsMax) {
+  @media (width <= 572px) {
     padding: 10px 0;
     margin-left: 8px;
   }

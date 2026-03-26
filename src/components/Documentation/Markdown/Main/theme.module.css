@@ -1,3 +1,5 @@
+@reference "../../../../styles/global.css";
+
 :root {
   --bg-dark: #1a1e23;
   --yellow-one: #ffc66d;
@@ -164,7 +166,7 @@
       text-decoration: underline;
     }
 
-    .token.function {
+    .token[class~='function'] {
       color: rgb(250 208 0);
     }
 
@@ -197,7 +199,7 @@
       color: var(--yellow-one);
     }
 
-    code.language-css .token.selector > .token.class,
+    code.language-css .token.selector > .token[class~='class'],
     code.language-css .token.selector > .token.attribute,
     code.language-css .token.selector > .token.pseudo-class,
     code.language-css .token.selector > .token.pseudo-element {

@@ -1,3 +1,5 @@
+@reference "../../../../styles/global.css";
+
 .menu {
   @apply relative top-0 flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-2;
 
@@ -36,7 +38,7 @@
   color: var(--docs-toc-text);
   border-radius: 6px;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     min-height: 38px;
     padding: 8px 8px 8px 36px;
     font-size: 16px;
@@ -94,7 +96,7 @@
   transform: translateY(-50%);
   left: 3px;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     left: 11px;
   }
 }
@@ -123,7 +125,7 @@
     transform 0.2s ease,
     color 0.2s ease;
 
-  @media screen(smMax) {
+  @media (width <= 768px) {
     width: 32px;
   }
 
@@ -165,7 +167,7 @@
     bottom: auto;
     transform: translateY(-50%);
 
-    @media screen(smMax) {
+    @media (width <= 768px) {
       left: 10px;
     }
 

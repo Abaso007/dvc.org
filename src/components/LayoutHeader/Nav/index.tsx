@@ -105,10 +105,7 @@ const Nav: React.FC<NavProps> = ({ opened, onToggle, onClose }) => {
       </nav>
       <div className={styles.mobileControlsLeft}>
         <button
-          className={cn(
-            styles.hamburgerButton,
-            hamburgerOpened && styles.hamburgerOpened
-          )}
+          className={styles.hamburgerButton}
           onClick={handleToggle}
           aria-expanded={hamburgerOpened}
           aria-label={hamburgerOpened ? 'Close menu' : 'Open menu'}
