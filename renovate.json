@@ -32,8 +32,6 @@
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
       "matchPackageNames": ["*"],
-      "automerge": true,
-      "automergeType": "branch",
       "prPriority": -1,
       "dependencyDashboardApproval": false
     },
@@ -44,8 +42,7 @@
       "schedule": ["at any time"],
       "minimumReleaseAge": "0 days",
       "prPriority": 10,
-      "dependencyDashboardApproval": false,
-      "automerge": false
+      "dependencyDashboardApproval": false
     },
     {
       "groupName": "gatsby",
@@ -92,16 +89,12 @@
       "groupName": "types",
       "matchPackageNames": ["@types/*", "!@types/react", "!@types/react-dom"],
       "matchDatasources": ["npm"],
-      "automerge": true,
-      "automergeType": "branch",
       "dependencyDashboardApproval": false
     },
     {
       "groupName": "github-actions",
       "matchManagers": ["github-actions"],
       "schedule": ["every weekend"],
-      "automerge": true,
-      "automergeType": "branch",
       "dependencyDashboardApproval": false
     }
   ]
