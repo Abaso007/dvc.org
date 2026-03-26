@@ -12,8 +12,8 @@ cache-control rules on top of the Gatsby static build.
 
 Docs served at https://dvc.org/doc (Heroku + CloudFront CDN).
 
-- `packages/gatsby-theme/src/components/Link/index.tsx` has a static DVC
-  `VERSION` that needs periodic updates.
+- `src/components/Link/index.tsx` has a static DVC `VERSION` that needs periodic
+  updates.
 - `redirects-list.json` — URL redirect rules, used by the Express server.
 - `content/docs/sidebar.json` — left sidebar navigation structure.
 - `content/linked-terms.js` — defines which backtick terms auto-link (e.g.
