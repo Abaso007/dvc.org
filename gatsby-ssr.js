@@ -48,7 +48,12 @@ void function() {
 `
 
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
-  const preloadFonts = ['brandon_reg', 'brandon_med', 'brandon_bld']
+  const preloadFonts = [
+    'brandon_reg',
+    'brandon_reg_it',
+    'brandon_med',
+    'brandon_bld'
+  ]
   setHeadComponents(
     preloadFonts.map(name => (
       <link
