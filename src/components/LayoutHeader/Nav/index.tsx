@@ -1,9 +1,11 @@
+import { DocSearchButton } from '@docsearch/modal/button'
 import cn from 'clsx/lite'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { logEvent } from '../../../utils/front/plausible'
 import HamburgerIcon from '../../HamburgerIcon'
 import PseudoButton from '../../PseudoButton'
+import { loadSearchModal } from '../../Search'
 import ThemeSwitcher from '../ThemeSwitcher'
 
 import LinkItems from './LinkItems'
@@ -114,6 +116,10 @@ const Nav: React.FC<NavProps> = ({ opened, onToggle, onClose }) => {
         </button>
       </div>
       <div className={styles.mobileControls}>
+        <DocSearchButton
+          className={styles.mobileSearchButton}
+          onClick={loadSearchModal}
+        />
         <ThemeSwitcher className={styles.mobileThemeSwitcher} />
       </div>
     </>

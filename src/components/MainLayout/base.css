@@ -96,6 +96,25 @@ body.dark-mode {
   --link-strong: #78b4ff;
   --focus-ring: #8fdcf0;
   --shadow-elevated: 0 8px 28px rgb(0 0 0 / 38%), 0 2px 8px rgb(0 0 0 / 24%);
+  --docsearch-text-color: var(--text-primary);
+  --docsearch-muted-color: var(--text-muted);
+  --docsearch-container-background: var(--bg-overlay);
+  --docsearch-modal-background: var(--bg-surface);
+  --docsearch-modal-shadow: var(--shadow-elevated);
+  --docsearch-searchbox-background: var(--bg-elevated);
+  --docsearch-searchbox-focus-background: var(--bg-elevated);
+  --docsearch-hit-background: var(--bg-elevated);
+  --docsearch-hit-color: var(--text-primary);
+  --docsearch-hit-active-color: var(--accent-primary-contrast);
+  --docsearch-highlight-color: var(--accent-primary);
+  --docsearch-footer-background: var(--bg-surface);
+  --docsearch-footer-shadow: 0 -1px 0 0 var(--border-subtle);
+  --docsearch-key-gradient: linear-gradient(
+    -225deg,
+    var(--bg-elevated),
+    var(--bg-surface)
+  );
+  --docsearch-key-shadow: none;
 }
 
 html {

@@ -14,14 +14,13 @@ import {
 } from 'react'
 
 import * as styles from './styles.module.css'
-
-interface ITogglesData {
-  [key: string]: {
-    texts: string[]
-    checkedInd: number
-    parentText: string | null
-  }
-}
+import {
+  convertTabTextToQueryText,
+  getSelectedIndexBasedOffQueryVal,
+  getUrlQueryVal,
+  syncToggleSelection,
+  type TogglesData
+} from './utils'
 
 interface ITogglesContext {
   addNewToggle?: (
@@ -30,47 +29,22 @@ interface ITogglesContext {
     parentText: string | null
   ) => void
   updateToggleInd?: (id: string, newInd: number) => void
-  togglesData?: ITogglesData
+  togglesData?: TogglesData
 }
 
 export const TogglesContext = createContext<ITogglesContext>({})
 
-const makeTextUrlFriendly = (val: string): string =>
-  val.replace(/[^\w\-._~]/g, '-').replace(/-+/g, '-')
-
-const convertTabTextToQueryText = (
-  text: string,
-  parentText: string | null
-): string => makeTextUrlFriendly(`${parentText ? `${parentText} ` : ''}${text}`)
-
-const getUrlQueryVal = (query: string, param: string): string => {
-  const params = new URLSearchParams(query)
-  return params.get(param) || ''
-}
-
 const setUrlQuery = (href: string, param: string, value: string): void => {
-  const formattedVal = makeTextUrlFriendly(value)
+  const formattedVal = convertTabTextToQueryText(value, null)
   const url = new URL(href)
   url.searchParams.set(param, formattedVal)
   window.history.pushState({}, '', url.href)
 }
 
-const getSelectedIndexBasedOffQueryVal = (
-  texts: string[],
-  queryVal: string,
-  parentText: string | null
-): number => {
-  const urlFriendlyTexts = texts.map(text =>
-    convertTabTextToQueryText(text, parentText)
-  )
-  const index = urlFriendlyTexts.findIndex(text => queryVal.startsWith(text))
-  return index > -1 ? index : 0
-}
-
 export const TogglesProvider: React.FC<
   PropsWithChildren<Record<never, never>>
 > = ({ children }) => {
-  const [togglesData, setTogglesData] = useState<ITogglesData>({})
+  const [togglesData, setTogglesData] = useState<TogglesData>({})
   const lastSelectedTabRef = useRef<string | null>(null)
 
   useEffect(() => {
@@ -104,33 +78,22 @@ export const TogglesProvider: React.FC<
 
   const updateToggleInd = useCallback(
     (id: string, newInd: number): void => {
-      const currentToggle = togglesData[id]
+      const result = syncToggleSelection(togglesData, id, newInd)
 
-      if (!currentToggle) {
+      if (!result) {
         return
-      }
-
-      const selectedTabText = currentToggle.texts[newInd]
-      const updated: ITogglesData = { ...togglesData }
-
-      for (const [key, value] of Object.entries(updated)) {
-        if (key === id) {
-          updated[id] = { ...updated[id], checkedInd: newInd }
-          continue
-        }
-        const index = value.texts.indexOf(selectedTabText)
-        if (index !== -1) {
-          updated[key] = { ...updated[key], checkedInd: index }
-        }
       }
 
       setUrlQuery(
         window.location.href,
         'tab',
-        convertTabTextToQueryText(selectedTabText, updated[id].parentText)
+        convertTabTextToQueryText(
+          result.selectedTabText,
+          result.updated[id].parentText
+        )
       )
-      lastSelectedTabRef.current = selectedTabText
-      setTogglesData(updated)
+      lastSelectedTabRef.current = result.selectedTabText
+      setTogglesData(result.updated)
     },
     [togglesData]
   )

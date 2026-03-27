@@ -5,19 +5,15 @@ import ShowOnly from '../../../ShowOnly'
 
 import DesktopView from './DesktopView'
 import MobileView from './MobileView'
+import { findGlossaryMatch } from './utils'
 
 const Tooltip: React.FC<{ text: string }> = ({ text }) => {
   const glossary = useGlossary()
-  const normalizedText = text.replace(/\n/g, ' ').toLowerCase()
 
-  const matched = useMemo(() => {
-    for (const item of glossary.contents) {
-      if (item.match.some(word => word.toLowerCase() === normalizedText)) {
-        return { description: item.desc, header: item.name }
-      }
-    }
-    return null
-  }, [glossary.contents, normalizedText])
+  const matched = useMemo(
+    () => findGlossaryMatch(glossary.contents, text),
+    [glossary.contents, text]
+  )
 
   if (!matched) {
     return <span>{text}</span>

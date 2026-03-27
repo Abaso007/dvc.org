@@ -3,6 +3,10 @@
 .menu {
   @apply relative top-0 flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-2;
 
+  @media (width <= 768px) {
+    padding-top: 10px;
+  }
+
   &.isScrollHidden {
     .ps__rail-y {
       opacity: 0;

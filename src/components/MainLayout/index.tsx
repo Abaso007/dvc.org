@@ -7,6 +7,7 @@ import './fonts.css'
 import { handleFirstTab } from '../../utils/front/accessibility'
 import LayoutFooter from '../LayoutFooter'
 import LayoutHeader from '../LayoutHeader'
+import SearchProvider from '../Search'
 
 import { useRedirects } from './utils'
 
@@ -41,32 +42,34 @@ const MainLayout = ({
   }, [])
 
   return (
-    <div
-      className={cn(
-        'min-h-screen',
-        'w-full',
-        'flex',
-        'flex-col',
-        'flex-nowrap',
-        'items-center'
-      )}
-    >
-      <LayoutHeader modifiers={modifiers} />
-      <main
+    <SearchProvider>
+      <div
         className={cn(
+          'min-h-screen',
           'w-full',
-          'grow',
           'flex',
           'flex-col',
           'flex-nowrap',
-          'items-center',
-          className
+          'items-center'
         )}
       >
-        {children}
-      </main>
-      <LayoutFooter />
-    </div>
+        <LayoutHeader modifiers={modifiers} />
+        <main
+          className={cn(
+            'w-full',
+            'grow',
+            'flex',
+            'flex-col',
+            'flex-nowrap',
+            'items-center',
+            className
+          )}
+        >
+          {children}
+        </main>
+        <LayoutFooter />
+      </div>
+    </SearchProvider>
   )
 }
 

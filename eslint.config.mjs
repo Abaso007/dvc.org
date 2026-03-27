@@ -147,7 +147,7 @@ export default tseslint.config(
   },
   // Vitest test file globals
   {
-    files: ['**/*.test.{js,ts}'],
+    files: ['**/*.test.{js,ts,tsx}'],
     languageOptions: {
       globals: {
         describe: 'readonly',

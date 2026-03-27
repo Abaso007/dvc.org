@@ -7,10 +7,9 @@ import {
   useRef
 } from 'react'
 
-import { focusElementWithHotkey } from '../../../utils/front/focusElementWithHotkey'
 import LayoutWidthContainer from '../../LayoutWidthContainer'
+import SearchTrigger from '../../Search/SearchTrigger'
 
-import SearchForm from './SearchForm'
 import SidebarMenu from './SidebarMenu'
 import SiteNav from './SiteNav'
 import * as styles from './styles.module.css'
@@ -64,11 +63,6 @@ const Layout: React.FC<PropsWithChildren<{ currentPath: string }>> = ({
     }
   }, [])
 
-  useEffect(() => {
-    const closeEventListener = focusElementWithHotkey('#doc-search', '/')
-    return closeEventListener
-  }, [])
-
   return (
     <LayoutWidthContainer className={styles.container} wide>
       {/* eslint-disable jsx-a11y/no-static-element-interactions */}
@@ -82,7 +76,7 @@ const Layout: React.FC<PropsWithChildren<{ currentPath: string }>> = ({
       <div className={cn(styles.side, isMenuOpen && styles.opened)}>
         <div className={styles.innerSidebar}>
           <SiteNav onNavigate={toggleMenu} />
-          <SearchForm />
+          <SearchTrigger />
           <SidebarMenu
             currentPath={currentPath}
             onClick={(isLeafItemClicked: boolean): void => {

@@ -80,6 +80,30 @@
   }
 }
 
+.mobileSearchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  /* Hide DocSearchButton inner text and kbd hints, keep only the SVG icon */
+  :global(.DocSearch-Button-Placeholder),
+  :global(.DocSearch-Button-Keys) {
+    display: none;
+  }
+}
+
 .mobileThemeSwitcher {
   flex-shrink: 0;
 }
