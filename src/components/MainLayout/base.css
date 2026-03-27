@@ -85,15 +85,21 @@
 body.dark-mode {
   color-scheme: dark;
 
-  --bg-canvas: #0c1116;
-  --bg-subtle: #141b22;
-  --bg-surface: #1c252f;
-  --bg-elevated: #24303b;
-  --bg-inset: #10161d;
+  /* Astigmatism-friendly: subpixel rendering makes text appear slightly
+     heavier, counteracting the halation (bright-on-dark glow) that makes
+     dark-mode text blurry for astigmatic eyes. */
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+
+  --bg-canvas: #131920;
+  --bg-subtle: #1a2028;
+  --bg-surface: #212b35;
+  --bg-elevated: #293440;
+  --bg-inset: #161c24;
   --bg-overlay: rgb(3 6 10 / 72%);
-  --text-primary: #edf3f7;
-  --text-secondary: #c0cad3;
-  --text-muted: #97a5b1;
+  --text-primary: #bec7cf;
+  --text-secondary: #a2adb7;
+  --text-muted: #8a96a1;
   --text-inverse: var(--neutral-950);
   --text-on-overlay: var(--neutral-0);
   --border-subtle: #4d5d6a;
@@ -104,7 +110,7 @@ body.dark-mode {
   --accent-primary-contrast: var(--neutral-950);
   --accent-secondary: var(--brand-purple-400);
   --accent-secondary-hover: #c29af2;
-  --accent-warn: #f28a61;
+  --accent-warn: #f4956e;
   --accent-warn-hover: #ff9b74;
   --link: #38c3d9;
   --link-hover: #84dbeb;
