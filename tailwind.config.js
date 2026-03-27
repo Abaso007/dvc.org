@@ -51,7 +51,7 @@ export default {
         },
         '.focus': {
           '&:focus': {
-            color: 'var(--color-orange)'
+            color: 'var(--accent-warn)'
           }
         },
         '.active': {

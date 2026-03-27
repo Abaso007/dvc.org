@@ -1,6 +1,6 @@
 import cn from 'clsx/lite'
 import throttle from 'lodash/throttle'
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 
 import * as styles from './styles.module.css'
@@ -92,7 +92,7 @@ const DesktopView: React.FC<IDesktopViewProps> = ({
 
     setPosition(getPosition(toggleRef.current, tooltipRef.current))
   }
-  const throttledCalcPosition = throttle(calcPosition, 50)
+  const throttledCalcPosition = useMemo(() => throttle(calcPosition, 50), [])
   const show = (): void => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -106,12 +106,15 @@ const DesktopView: React.FC<IDesktopViewProps> = ({
   }
 
   useEffect(() => {
-    document.addEventListener('scroll', throttledCalcPosition)
-    window.addEventListener('resize', throttledCalcPosition)
+    document.addEventListener('scroll', throttledCalcPosition, {
+      passive: true
+    })
+    window.addEventListener('resize', throttledCalcPosition, { passive: true })
 
     return (): void => {
       document.removeEventListener('scroll', throttledCalcPosition)
       window.removeEventListener('resize', throttledCalcPosition)
+      throttledCalcPosition.cancel()
     }
   }, [throttledCalcPosition])
   useEffect(() => {

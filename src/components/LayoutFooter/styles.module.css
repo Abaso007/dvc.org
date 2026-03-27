@@ -154,7 +154,7 @@
   }
 
   &:focus {
-    color: var(--color-orange);
+    color: var(--accent-warn);
   }
 
   &:active {
@@ -234,8 +234,8 @@
   padding: 4px 0;
   background: linear-gradient(
     270deg,
-    var(--color-orange-bright) 0%,
-    var(--color-purple) 100%
+    var(--accent-warn-hover) 0%,
+    var(--accent-secondary) 100%
   );
   background-size: 100%;
   background-clip: text;

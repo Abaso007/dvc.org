@@ -44,8 +44,8 @@
   white-space: nowrap;
   background: linear-gradient(
     270deg,
-    var(--color-purple) 0%,
-    var(--color-orange-bright) 100%
+    var(--accent-secondary) 0%,
+    var(--accent-warn-hover) 100%
   );
   background-size: 100%;
   background-clip: text;

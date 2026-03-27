@@ -57,7 +57,7 @@ const Layout: React.FC<PropsWithChildren<{ currentPath: string }>> = ({
         document.documentElement.removeAttribute('data-resizing')
       }, 150)
     }
-    window.addEventListener('resize', onResize)
+    window.addEventListener('resize', onResize, { passive: true })
     return () => {
       window.removeEventListener('resize', onResize)
       clearTimeout(resizeTimer.current)

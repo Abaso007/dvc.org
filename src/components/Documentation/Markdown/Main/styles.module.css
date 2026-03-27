@@ -371,7 +371,7 @@
         text-decoration: underline;
 
         &:focus {
-          color: var(--color-orange);
+          color: var(--accent-warn);
         }
 
         &::after {

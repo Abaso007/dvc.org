@@ -9,6 +9,7 @@ import * as styles from '../styles.module.css'
 import Tooltip from '../Tooltip'
 
 type RemarkNode = { props: { children: RemarkNode[] } } | string
+const HEADING_RE = /^h.$/
 
 export const Details: React.FC<
   PropsWithChildren<{
@@ -30,7 +31,7 @@ export const Details: React.FC<
      must be removed. The only way around this is the change the autolinker,
      which we currently have as an external package.
    */
-  const triggerChildren: RemarkNode[] = /^h.$/.test(firstChild?.type)
+  const triggerChildren: RemarkNode[] = HEADING_RE.test(firstChild?.type)
     ? firstChild.props.children.slice(0, firstChild.props.children.length - 1)
     : []
 
@@ -49,7 +50,7 @@ export const Details: React.FC<
     return id ? slugger.slug(id) : slugger.slug(title)
   }, [id, slugger, title])
 
-  if (!/^h.$/.test(firstChild?.type)) {
+  if (!HEADING_RE.test(firstChild?.type)) {
     throw new Error('The first child of a details element must be a heading!')
   }
 

@@ -4,9 +4,11 @@ import {
   FC,
   Fragment,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
   useId,
+  useMemo,
   useRef,
   useState
 } from 'react'
@@ -68,66 +70,78 @@ const getSelectedIndexBasedOffQueryVal = (
 export const TogglesProvider: React.FC<
   PropsWithChildren<Record<never, never>>
 > = ({ children }) => {
-  const [togglesData, setTogglesData] = useState({})
-  const [lastSelectedTab, setLastSelectedTab] = useState<null | string>(null)
+  const [togglesData, setTogglesData] = useState<ITogglesData>({})
+  const lastSelectedTabRef = useRef<string | null>(null)
 
   useEffect(() => {
-    const tab = getUrlQueryVal(window.location.search, 'tab')
-    setLastSelectedTab(tab)
+    lastSelectedTabRef.current = getUrlQueryVal(window.location.search, 'tab')
   }, [])
 
-  const addNewToggle = (
-    id: string,
-    texts: string[],
-    parentText: string | null
-  ): void => {
-    let lastSelected = lastSelectedTab
-    const togglesDataCopy: ITogglesData = { ...togglesData }
+  const addNewToggle = useCallback(
+    (id: string, texts: string[], parentText: string | null): void => {
+      setTogglesData(prev => {
+        if (prev[id]) return prev
+        let lastSelected = lastSelectedTabRef.current
+        if (lastSelected === null) {
+          lastSelected = getUrlQueryVal(window.location.search, 'tab')
+        }
+        return {
+          ...prev,
+          [id]: {
+            texts,
+            checkedInd: getSelectedIndexBasedOffQueryVal(
+              texts,
+              lastSelected,
+              parentText
+            ),
+            parentText
+          }
+        }
+      })
+    },
+    []
+  )
 
-    if (lastSelected === null) {
-      lastSelected = getUrlQueryVal(window.location.search, 'tab')
-    }
+  const updateToggleInd = useCallback(
+    (id: string, newInd: number): void => {
+      const currentToggle = togglesData[id]
 
-    togglesDataCopy[id] = {
-      texts,
-      checkedInd: getSelectedIndexBasedOffQueryVal(
-        texts,
-        lastSelected,
-        parentText
-      ),
-      parentText
-    }
-    setTogglesData(togglesDataCopy)
-  }
-
-  const updateToggleInd = (id: string, newInd: number): void => {
-    const togglesDataCopy: ITogglesData = { ...togglesData }
-    const selectedTabText = togglesDataCopy[id].texts[newInd]
-
-    for (const [key, value] of Object.entries(togglesDataCopy)) {
-      if (key === id) {
-        togglesDataCopy[id].checkedInd = newInd
-        continue
+      if (!currentToggle) {
+        return
       }
-      const index = value.texts.indexOf(selectedTabText)
-      if (index !== -1) {
-        togglesDataCopy[key].checkedInd = index
-      }
-    }
 
-    setUrlQuery(
-      window.location.href,
-      'tab',
-      convertTabTextToQueryText(selectedTabText, togglesDataCopy[id].parentText)
-    )
-    setLastSelectedTab(selectedTabText)
-    setTogglesData(togglesDataCopy)
-  }
+      const selectedTabText = currentToggle.texts[newInd]
+      const updated: ITogglesData = { ...togglesData }
+
+      for (const [key, value] of Object.entries(updated)) {
+        if (key === id) {
+          updated[id] = { ...updated[id], checkedInd: newInd }
+          continue
+        }
+        const index = value.texts.indexOf(selectedTabText)
+        if (index !== -1) {
+          updated[key] = { ...updated[key], checkedInd: index }
+        }
+      }
+
+      setUrlQuery(
+        window.location.href,
+        'tab',
+        convertTabTextToQueryText(selectedTabText, updated[id].parentText)
+      )
+      lastSelectedTabRef.current = selectedTabText
+      setTogglesData(updated)
+    },
+    [togglesData]
+  )
+
+  const contextValue = useMemo(
+    () => ({ addNewToggle, updateToggleInd, togglesData }),
+    [addNewToggle, updateToggleInd, togglesData]
+  )
 
   return (
-    <TogglesContext.Provider
-      value={{ addNewToggle, updateToggleInd, togglesData }}
-    >
+    <TogglesContext.Provider value={contextValue}>
       {children}
     </TogglesContext.Provider>
   )

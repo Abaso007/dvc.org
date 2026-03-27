@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 
 import useGlossary from '../../../../utils/front/glossary'
 import ShowOnly from '../../../ShowOnly'
@@ -8,29 +8,18 @@ import MobileView from './MobileView'
 
 const Tooltip: React.FC<{ text: string }> = ({ text }) => {
   const glossary = useGlossary()
-  const [state, setState] = useState({
-    description: '',
-    header: '',
-    match: false
-  })
+  const normalizedText = text.replace(/\n/g, ' ').toLowerCase()
 
-  useEffect(() => {
-    glossary.contents.forEach(glossaryItem => {
-      if (
-        glossaryItem.match
-          .map(word => word.toLowerCase())
-          .includes(text.replace(/\n/g, ' ').toLowerCase())
-      ) {
-        setState({
-          description: glossaryItem.desc,
-          header: glossaryItem.name,
-          match: true
-        })
+  const matched = useMemo(() => {
+    for (const item of glossary.contents) {
+      if (item.match.some(word => word.toLowerCase() === normalizedText)) {
+        return { description: item.desc, header: item.name }
       }
-    })
-  }, [glossary.contents, text])
+    }
+    return null
+  }, [glossary.contents, normalizedText])
 
-  if (!state.match) {
+  if (!matched) {
     return <span>{text}</span>
   }
 
@@ -38,15 +27,15 @@ const Tooltip: React.FC<{ text: string }> = ({ text }) => {
     <>
       <ShowOnly on="desktop" as="span">
         <DesktopView
-          description={state.description}
-          header={state.header}
+          description={matched.description}
+          header={matched.header}
           text={text}
         />
       </ShowOnly>
       <ShowOnly on="mobile" as="span">
         <MobileView
-          description={state.description}
-          header={state.header}
+          description={matched.description}
+          header={matched.header}
           text={text}
         />
       </ShowOnly>

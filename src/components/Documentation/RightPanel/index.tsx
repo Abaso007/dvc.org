@@ -79,8 +79,12 @@ const RightPanel: React.FC<IRightPanelProps> = ({
   useEffect(() => {
     const throttledSetCurrentHeader = throttle(updateCurrentHeader, 100)
 
-    document.addEventListener('scroll', throttledSetCurrentHeader)
-    window.addEventListener('resize', updateHeadingsPosition)
+    document.addEventListener('scroll', throttledSetCurrentHeader, {
+      passive: true
+    })
+    window.addEventListener('resize', updateHeadingsPosition, {
+      passive: true
+    })
 
     return (): void => {
       document.removeEventListener('scroll', throttledSetCurrentHeader)

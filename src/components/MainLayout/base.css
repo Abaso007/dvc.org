@@ -57,27 +57,6 @@
   --theme-transition-duration: 120ms;
   --theme-transition-easing: ease;
   --shadow-elevated: 0 4px 24px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 8%);
-
-  /* Legacy aliases for phased migration */
-  --color-black: var(--text-primary);
-  --color-gray-light: var(--border-strong);
-  --color-gray: var(--text-muted);
-  --color-gray-dark: var(--text-secondary);
-  --color-gray-opaque: var(--border-muted);
-  --color-gray-hover: var(--neutral-600);
-  --color-light-gray: var(--border-subtle);
-  --color-azure: var(--accent-primary);
-  --color-azure-hover: var(--accent-primary-hover);
-  --color-teal: var(--link);
-  --color-teal-hover: var(--link-hover);
-  --color-blue: var(--link-strong);
-  --color-lighter-blue: var(--border-subtle);
-  --color-light-blue: var(--bg-subtle);
-  --color-light-blue-hover: var(--bg-inset);
-  --color-purple: var(--accent-secondary);
-  --color-purple-hover: var(--accent-secondary-hover);
-  --color-orange: var(--accent-warn);
-  --color-orange-bright: var(--accent-warn-hover);
   --layout-width: 1005px;
   --layout-width-wide: 1200px;
 }
@@ -117,28 +96,6 @@ body.dark-mode {
   --link-strong: #78b4ff;
   --focus-ring: #8fdcf0;
   --shadow-elevated: 0 8px 28px rgb(0 0 0 / 38%), 0 2px 8px rgb(0 0 0 / 24%);
-
-  /* Legacy aliases — must be re-declared here so they resolve against
-     body.dark-mode's semantic tokens instead of :root's light ones. */
-  --color-black: var(--text-primary);
-  --color-gray-light: var(--border-strong);
-  --color-gray: var(--text-muted);
-  --color-gray-dark: var(--text-secondary);
-  --color-gray-opaque: var(--border-muted);
-  --color-gray-hover: #c0cad3;
-  --color-light-gray: var(--border-subtle);
-  --color-azure: var(--accent-primary);
-  --color-azure-hover: var(--accent-primary-hover);
-  --color-teal: var(--link);
-  --color-teal-hover: var(--link-hover);
-  --color-blue: var(--link-strong);
-  --color-lighter-blue: var(--border-subtle);
-  --color-light-blue: var(--bg-subtle);
-  --color-light-blue-hover: var(--bg-inset);
-  --color-purple: var(--accent-secondary);
-  --color-purple-hover: var(--accent-secondary-hover);
-  --color-orange: var(--accent-warn);
-  --color-orange-bright: var(--accent-warn-hover);
 }
 
 html {
