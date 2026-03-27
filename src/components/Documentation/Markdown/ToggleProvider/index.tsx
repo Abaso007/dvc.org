@@ -1,5 +1,4 @@
 import cn from 'clsx/lite'
-import { nanoid } from 'nanoid'
 import {
   createContext,
   FC,
@@ -7,6 +6,7 @@ import {
   PropsWithChildren,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState
 } from 'react'
@@ -165,7 +165,7 @@ export const Toggle: React.FC<{
   height?: string
   children: Array<{ props: { title: string } } | string>
 }> = ({ height, children }) => {
-  const [toggleId, setToggleId] = useState('')
+  const toggleId = useId()
   const {
     addNewToggle = (): null => null,
     updateToggleInd = (): null => null,
@@ -187,13 +187,7 @@ export const Toggle: React.FC<{
       tabParent.previousElementSibling &&
       tabParent.previousElementSibling.textContent
 
-    if (toggleId === '') {
-      const newId = nanoid()
-      addNewToggle(newId, tabsTitles, labelParentText)
-      setToggleId(newId)
-    }
-
-    if (toggleId && !togglesData[toggleId]) {
+    if (!togglesData[toggleId]) {
       addNewToggle(toggleId, tabsTitles, labelParentText)
     }
   }, [addNewToggle, tabsTitles, toggleId, togglesData])

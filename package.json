@@ -73,7 +73,6 @@
     "http-proxy-middleware": "3.0.5",
     "lodash": "4.17.23",
     "lucide-react": "1.7.0",
-    "nanoid": "5.1.7",
     "permissions-policy": "0.6.0",
     "postcss": "8.5.8",
     "postcss-nested": "7.0.2",
