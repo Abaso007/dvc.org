@@ -117,6 +117,10 @@ body.dark-mode {
   --docsearch-key-shadow: none;
 }
 
+:global(.DocSearch-Hit-content-wrapper) {
+  overflow: hidden;
+}
+
 :global(.DocSearch-Modal) {
   width: min(100vw, var(--docsearch-modal-width));
   max-width: min(100vw, var(--docsearch-modal-width));

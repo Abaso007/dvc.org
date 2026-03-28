@@ -39,6 +39,10 @@ export default function SearchProvider({
   const [modalLoaded, setModalLoaded] = useState(false)
 
   const loadModal = () => {
+    if (DocSearchModal) {
+      setModalLoaded(true)
+      return
+    }
     importModalIfNeeded().then(() => setModalLoaded(true))
   }
 
