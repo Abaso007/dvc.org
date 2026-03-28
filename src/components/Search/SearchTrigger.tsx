@@ -5,10 +5,6 @@ import * as styles from './styles.module.css'
 
 import { loadSearchModal } from './index'
 
-const isMac =
-  typeof navigator !== 'undefined' &&
-  /Mac|iPod|iPhone|iPad/.test(navigator.platform)
-
 const SearchTrigger: React.FC = () => {
   const { openModal } = useDocSearch()
 
@@ -25,7 +21,6 @@ const SearchTrigger: React.FC = () => {
           className={styles.desktopTriggerIcon}
         />
         <span className={styles.desktopTriggerText}>Search docs</span>
-        <kbd className={styles.desktopTriggerKbd}>{isMac ? '⌘' : 'Ctrl+'}K</kbd>
       </button>
     </div>
   )

@@ -39,19 +39,3 @@
   color: var(--text-secondary);
   pointer-events: none;
 }
-
-.desktopTriggerText {
-  flex: 1;
-  text-align: left;
-}
-
-.desktopTriggerKbd {
-  flex-shrink: 0;
-  font-size: 11px;
-  font-family: inherit;
-  padding: 2px 6px;
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  color: var(--text-muted);
-  background: var(--bg-canvas);
-}
