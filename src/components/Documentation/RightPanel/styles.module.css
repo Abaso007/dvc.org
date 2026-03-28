@@ -3,6 +3,7 @@
 .container {
   @apply mt-7 pt-14 sticky h-screen top-0;
 
+  align-self: flex-start;
   flex-shrink: 0;
   width: 170px;
   font-size: 16px;
@@ -18,9 +19,14 @@
 .contentBlock {
   @apply basis-auto min-h-[6rem];
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   margin-bottom: 17px;
   scrollbar-color: var(--docs-rail-text) var(--docs-content-bg);
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
 
   &::-webkit-scrollbar {
     appearance: none;
@@ -62,9 +68,11 @@
   font-weight: 400;
   line-height: 26px;
   cursor: pointer;
+  transition: color 0.15s ease-out;
 
   &.current {
     color: var(--docs-rail-text-current);
+    font-weight: 500;
   }
 
   &:hover {
