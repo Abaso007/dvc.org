@@ -3,6 +3,27 @@
 .menu {
   @apply relative top-0 flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-2;
 
+  scrollbar-color: color-mix(in srgb, var(--docs-toc-text) 40%, transparent)
+    transparent;
+
+  &::-webkit-scrollbar {
+    appearance: none;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: color-mix(in srgb, var(--docs-toc-text) 40%, transparent);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--docs-toc-text) 60%, transparent);
+  }
+
   @media (width <= 768px) {
     padding-top: 10px;
   }

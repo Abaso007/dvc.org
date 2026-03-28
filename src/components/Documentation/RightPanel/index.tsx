@@ -168,7 +168,7 @@ const RightPanel: React.FC<IRightPanelProps> = ({
   return (
     <div className={styles.container}>
       {headings.length > 0 && (
-        <nav aria-label="On this page">
+        <nav aria-label="On this page" className={styles.nav}>
           <div>
             <h5 className={styles.header}>Content</h5>
             <hr className={styles.separator} />
