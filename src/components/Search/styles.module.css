@@ -31,6 +31,12 @@
   }
 }
 
+.desktopTriggerText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .desktopTriggerIcon {
   position: absolute;
   left: 15px;

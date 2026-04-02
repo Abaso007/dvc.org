@@ -146,9 +146,6 @@ on.
 Some available variables:
 
 - `GA_ID` – ID of the Google Analytics counter.
-- `ANALYZE` - boolean property to run
-  [webpack-analyzer](https://www.gatsbyjs.com/plugins/gatsby-plugin-webpack-bundle-analyser-v2/).
-- `SENTRY_DSN` - [Sentry](https://sentry.io/welcome/) URL for errors tracking.
 
 ## Doc style guidelines (JavaScript and Markdown)
 

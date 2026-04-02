@@ -5,14 +5,12 @@ import path from 'path'
 import tailwindcssPostcss from '@tailwindcss/postcss'
 import postcssNested from 'postcss-nested'
 
-import 'dotenv/config'
 import './src/config/prismjs/dvc.js'
 import './src/config/prismjs/dvctable.js'
 import simpleLinkerTerms from './content/linked-terms.js'
 import redirectsMiddleware from './server/redirect.js'
 import customYoutubeTransformer from './src/config/custom-yt-embedder.js'
 import makeGitHubMarkdownCssUseThemeAttribute from './src/config/postcss-theme-attribute.js'
-import sentryConfig from './src/config/sentry.js'
 
 const require = createRequire(import.meta.url)
 const rootDir = import.meta.dirname
@@ -45,7 +43,6 @@ const docsPath = path.resolve('content', 'docs')
 const docsInstanceName = 'docs'
 const glossaryInstanceName = 'glossary'
 const argsLinkerPath = ['command-reference', 'ref', 'cli-reference']
-const sentry = true
 
 const postCssPlugins = [
   postcssNested,
@@ -138,7 +135,7 @@ const plugins = [
             quotes: false
           }
         },
-        'gatsby-remark-external-links',
+        require.resolve('./src/plugins/remark-external-links'),
         {
           resolve: 'gatsby-remark-autolink-headers',
           options: {
@@ -157,7 +154,6 @@ const plugins = [
           }
         },
         require.resolve('./src/plugins/resize-image-plugin'),
-        require.resolve('./src/plugins/external-link-plugin'),
         require.resolve('./src/plugins/null-link-plugin'),
       ]
     }
@@ -189,10 +185,6 @@ const plugins = [
         placeholder: 'blurred'
       }
     }
-  },
-  sentry && {
-    resolve: '@sentry/gatsby',
-    options: sentryConfig
   },
   'gatsby-plugin-catch-links',
   'gatsby-transformer-remark-frontmatter',
@@ -291,11 +283,6 @@ if (process.env.GATSBY_GTM_ID) {
   })
 }
 
-if (process.env.ANALYZE) {
-  plugins.push({
-    resolve: 'gatsby-plugin-webpack-bundle-analyser-v2'
-  })
-}
 
 export default {
   plugins: plugins.filter(Boolean),

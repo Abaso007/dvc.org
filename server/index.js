@@ -1,7 +1,3 @@
-import './instrument.js'
-import 'dotenv/config'
-
-import * as Sentry from '@sentry/node'
 import compression from 'compression'
 import express from 'express'
 import helmet from 'helmet'
@@ -114,7 +110,6 @@ const serveMiddleware = async (req, res) => {
   })
 }
 app.use(serveMiddleware)
-Sentry.setupExpressErrorHandler(app)
 
 // Error handler
 app.use(function onError(err, req, res, _next) {
@@ -123,7 +118,6 @@ app.use(function onError(err, req, res, _next) {
   const status = err?.status || 500
 
   res.status(status).json({
-    traceId: res.sentry,
     message: status === 500 ? 'Internal server error' : err.message
   })
 })

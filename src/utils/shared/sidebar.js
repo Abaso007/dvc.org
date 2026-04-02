@@ -16,8 +16,6 @@
   }
 */
 
-import { titleCase } from 'title-case'
-
 import sidebar from '../../../content/docs/sidebar.json' with { type: 'json' }
 import {
   SIDEBAR_UPPERCASE_KEYWORDS_REGEX,
@@ -32,8 +30,36 @@ function uppercaseSlugKeywords(slug) {
   })
 }
 
+const SMALL_WORDS = new Set([
+  'a',
+  'an',
+  'and',
+  'as',
+  'at',
+  'but',
+  'by',
+  'for',
+  'if',
+  'in',
+  'nor',
+  'of',
+  'on',
+  'or',
+  'so',
+  'the',
+  'to',
+  'up',
+  'yet'
+])
+
 function slugTitleCase(slug) {
-  return titleCase(uppercaseSlugKeywords(slug).replace(/-/g, ' '))
+  return uppercaseSlugKeywords(slug)
+    .replace(/-/g, ' ')
+    .split(' ')
+    .map((w, i) =>
+      i > 0 && SMALL_WORDS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)
+    )
+    .join(' ')
 }
 
 function validateRawItem({ slug, source, children, type, url }) {
@@ -187,10 +213,6 @@ function findChildWithSource(item) {
     : findChildWithSource(item.children && item.children[0])
 }
 
-function getFirstPage() {
-  return findChildWithSource(normalizedSidebar[0]).path
-}
-
 function getItemByPath(path) {
   const normalizedPath = path.replace(/\/$/, '')
   const isRoot = normalizedPath === SIDEBAR_PATH_ROOT
@@ -201,12 +223,6 @@ function getItemByPath(path) {
   if (!item) return false
 
   return findChildWithSource(item)
-}
-
-function getItemBySource(source) {
-  const item = findItemByField(normalizedSidebar, 'source', source)
-
-  return item || false
 }
 
 function getPathWithSource(path) {
@@ -234,8 +250,6 @@ export {
   normalizedSidebar as structure,
   findChildWithSource,
   getItemByPath,
-  getItemBySource,
   getPathWithSource,
-  getParentsListFromPath,
-  getFirstPage
+  getParentsListFromPath
 }

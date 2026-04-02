@@ -103,7 +103,7 @@ export const onCreatePage = ({ page, actions }) => {
 // Ignore warnings about CSS inclusion order, because we use CSS modules.
 // https://spectrum.chat/gatsby-js/general/having-issue-related-to-chunk-commons-mini-css-extract-plugin~0ee9c456-a37e-472a-a1a0-cc36f8ae6033?m=MTU3MjYyNDQ5OTAyNQ==
 export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  if (stage === 'build-javascript') {
+  if (stage === 'build-javascript' || stage === 'develop') {
     const config = getConfig()
 
     const miniCssExtractPlugin = config.plugins.find(

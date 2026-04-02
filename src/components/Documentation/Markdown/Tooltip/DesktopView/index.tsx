@@ -104,17 +104,23 @@ const DesktopView: React.FC<IDesktopViewProps> = ({
   }
 
   useEffect(() => {
-    document.addEventListener('scroll', calcPosition, { passive: true })
-    window.addEventListener('resize', calcPosition, { passive: true })
+    if (!isVisible) return
+
+    let rafId = requestAnimationFrame(calcPosition)
+    const scheduleCalc = (): void => {
+      if (!rafId)
+        rafId = requestAnimationFrame(() => {
+          rafId = 0
+          calcPosition()
+        })
+    }
+    document.addEventListener('scroll', scheduleCalc, { passive: true })
+    window.addEventListener('resize', scheduleCalc, { passive: true })
 
     return (): void => {
-      document.removeEventListener('scroll', calcPosition)
-      window.removeEventListener('resize', calcPosition)
-    }
-  }, [])
-  useEffect(() => {
-    if (isVisible) {
-      requestAnimationFrame(calcPosition)
+      document.removeEventListener('scroll', scheduleCalc)
+      window.removeEventListener('resize', scheduleCalc)
+      cancelAnimationFrame(rafId)
     }
   }, [isVisible])
 

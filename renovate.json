@@ -50,11 +50,6 @@
       "matchDatasources": ["npm"]
     },
     {
-      "groupName": "sentry",
-      "matchPackageNames": ["@sentry/*"],
-      "matchDatasources": ["npm"]
-    },
-    {
       "description": "Add typescript-eslint to the linters preset group",
       "groupName": "linters",
       "matchPackageNames": ["typescript-eslint"],
