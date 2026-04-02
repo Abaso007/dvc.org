@@ -5,21 +5,15 @@ import { IHeading } from '../'
 import { mainSiteUrls } from '../../../consts.js'
 import Link from '../../Link'
 import * as sharedStyles from '../styles.module.css'
-import Tutorials from '../TutorialsLinks'
 
 import * as styles from './styles.module.css'
 
 interface IRightPanelProps {
   headings: Array<IHeading>
   githubLink: string
-  tutorials?: { [type: string]: string }
 }
 
-const RightPanel: React.FC<IRightPanelProps> = ({
-  headings,
-  tutorials,
-  githubLink
-}) => {
+const RightPanel: React.FC<IRightPanelProps> = ({ headings, githubLink }) => {
   const [currentSlug, setCurrentSlug] = useState<string | null>(null)
   const animatingRef = useRef(false)
   const contentBlockRef = useRef<HTMLDivElement>(null)
@@ -194,26 +188,6 @@ const RightPanel: React.FC<IRightPanelProps> = ({
         </nav>
       )}
       <div className={styles.buttonsBlock}>
-        {Object.keys(tutorials || {}).length > 0 && (
-          <div className={styles.buttonSection}>
-            <p className={styles.buttonSectionDescription}>
-              <span
-                className={styles.buttonSectionIcon}
-                role="img"
-                aria-label="run"
-              >
-                ▶️
-              </span>{' '}
-              It can be run online:
-            </p>
-            {tutorials && (
-              <Tutorials
-                buttonClassName={cn(styles.button, styles.tutorials)}
-                tutorials={tutorials}
-              />
-            )}
-          </div>
-        )}
         <div className={styles.buttonSection}>
           <p className={styles.buttonSectionDescription}>
             <span

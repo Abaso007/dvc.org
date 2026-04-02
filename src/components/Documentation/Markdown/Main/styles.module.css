@@ -425,21 +425,6 @@
   background-color: var(--docs-content-bg);
 }
 
-.tutorialsWrapper {
-  position: relative;
-  z-index: 1;
-  float: right;
-  margin: 5px 0 0 10px;
-
-  @media (width <= 1004px) {
-    margin: 0 0 15px;
-  }
-
-  @media only screen and (width >= 1200px) {
-    display: none;
-  }
-}
-
 .githubLink {
   display: none;
   float: right;

@@ -25,7 +25,6 @@ const renderAst = (slugger: Slugger) => (tree: Element) =>
 interface IMarkdownProps {
   htmlAst: Element
   githubLink: string
-  tutorials?: { [type: string]: string }
   prev?: string
   next?: string
 }
@@ -34,13 +33,12 @@ const Markdown: React.FC<IMarkdownProps> = ({
   htmlAst,
   prev,
   next,
-  tutorials,
   githubLink
 }) => {
   const slugger = new Slugger()
   const patchedAst = patchHtmlAst(htmlAst)
   return (
-    <Main prev={prev} next={next} tutorials={tutorials} githubLink={githubLink}>
+    <Main prev={prev} next={next} githubLink={githubLink}>
       <TogglesProvider>{renderAst(slugger)(patchedAst)}</TogglesProvider>
     </Main>
   )

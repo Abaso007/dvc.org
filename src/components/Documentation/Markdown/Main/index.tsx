@@ -9,7 +9,6 @@ import {
 } from '../../../../utils/shared/sidebar'
 import Link from '../../../Link'
 import * as sharedStyles from '../../styles.module.css'
-import Tutorials from '../../TutorialsLinks'
 
 import * as styles from './styles.module.css'
 import * as themeStyles from './theme.module.css'
@@ -17,7 +16,6 @@ import { useArgsTargetFlash } from './useArgsTargetFlash'
 
 interface IMainProps {
   githubLink: string
-  tutorials?: { [type: string]: string }
   prev?: string
   next?: string
 }
@@ -26,7 +24,6 @@ const Main: React.FC<PropsWithChildren<IMainProps>> = ({
   children,
   prev,
   next,
-  tutorials,
   githubLink
 }) => {
   useArgsTargetFlash()
@@ -37,11 +34,6 @@ const Main: React.FC<PropsWithChildren<IMainProps>> = ({
 
   return (
     <div className={styles.content} id="markdown-root">
-      {tutorials && (
-        <div className={styles.tutorialsWrapper}>
-          <Tutorials tutorials={tutorials} compact={true} />
-        </div>
-      )}
       <Link
         className={cn(sharedStyles.button, styles.githubLink)}
         href={githubLink}

@@ -16,24 +16,15 @@ const WithJSX: React.FC<PropsWithChildren<IWithJSXProps>> = ({
   path,
   headings
 }) => {
-  const { source, prev, next, tutorials } = getItemByPath(path)
+  const { source, prev, next } = getItemByPath(path)
   const githubLink = getEditLink(source)
 
   return (
     <>
-      <MarkdownMain
-        prev={prev}
-        next={next}
-        githubLink={githubLink}
-        tutorials={tutorials}
-      >
+      <MarkdownMain prev={prev} next={next} githubLink={githubLink}>
         {children}
       </MarkdownMain>
-      <RightPanel
-        headings={headings}
-        githubLink={githubLink}
-        tutorials={tutorials}
-      />
+      <RightPanel headings={headings} githubLink={githubLink} />
     </>
   )
 }

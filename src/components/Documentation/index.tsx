@@ -22,7 +22,7 @@ const Documentation: React.FC<IDocumentationProps> = ({
   path,
   headings
 }) => {
-  const { source, prev, next, tutorials } = getItemByPath(path)
+  const { source, prev, next } = getItemByPath(path)
   const githubLink = getEditLink(source)
 
   return (
@@ -32,13 +32,8 @@ const Documentation: React.FC<IDocumentationProps> = ({
         prev={prev}
         next={next}
         githubLink={githubLink}
-        tutorials={tutorials}
       />
-      <RightPanel
-        headings={headings}
-        githubLink={githubLink}
-        tutorials={tutorials}
-      />
+      <RightPanel headings={headings} githubLink={githubLink} />
     </>
   )
 }

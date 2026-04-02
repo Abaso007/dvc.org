@@ -12,9 +12,6 @@
     next: "/start/share-data",
     icon: "house",
     style: "customClass",
-    tutorials: {
-      katacoda: "https://www.katacoda.com/dvc/courses/get-started"
-    }
     children: []
   }
 */
@@ -91,7 +88,7 @@ function findPrevItemWithSource(data, item) {
 function normalizeItem({ rawItem, parentPath, resultRef, prevRef }) {
   validateRawItem(rawItem)
 
-  const { label, slug, source, tutorials, type, url, style, icon } = rawItem
+  const { label, slug, source, type, url, style, icon } = rawItem
 
   const sharedFields = {
     style,
@@ -120,7 +117,6 @@ function normalizeItem({ rawItem, parentPath, resultRef, prevRef }) {
         path: relativePath ? `${SIDEBAR_PATH_ROOT}/${relativePath}` : '/',
         source: source === false ? false : sourcePath,
         label: label ? label : slugTitleCase(slug),
-        tutorials: tutorials || {},
         prev,
         next: undefined,
         ...sharedFields

@@ -3,13 +3,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import DesktopView from './index'
 
-vi.mock('lodash/throttle', () => ({
-  default: (fn: (...args: unknown[]) => void) =>
-    Object.assign((...args: unknown[]) => fn(...args), {
-      cancel: vi.fn()
-    })
-}))
-
 describe('DesktopView', () => {
   beforeEach(() => {
     vi.useFakeTimers()

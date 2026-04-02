@@ -123,10 +123,6 @@
   --docs-button-bg: var(--docs-surface-bg);
   --docs-button-bg-hover: var(--docs-surface-hover-bg);
   --docs-button-text: var(--docs-text-primary);
-
-  &.tutorials {
-    white-space: nowrap;
-  }
 }
 
 :global(body.dark-mode) .buttonSectionDescription {

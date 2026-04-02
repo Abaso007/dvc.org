@@ -15,7 +15,6 @@ describe('normalizeSidebar', () => {
           label: 'Item Name',
           path: '/item-name',
           source: '/docs/item-name.md',
-          tutorials: {},
           prev: undefined,
           next: undefined
         }
@@ -34,7 +33,6 @@ describe('normalizeSidebar', () => {
           label: 'Item Name',
           path: '/item-name',
           source: '/docs/item-name.md',
-          tutorials: {},
           prev: undefined,
           next: undefined
         }
@@ -53,7 +51,6 @@ describe('normalizeSidebar', () => {
           label: 'Custom Label',
           path: '/item-name',
           source: '/docs/item-name.md',
-          tutorials: {},
           prev: undefined,
           next: undefined
         }
@@ -72,35 +69,6 @@ describe('normalizeSidebar', () => {
           label: 'Item Name',
           path: '/item-name',
           source: '/docs/item-name/index.md',
-          tutorials: {},
-          prev: undefined,
-          next: undefined
-        }
-      ]
-
-      vi.doMock(SIDEBAR_SOURCE, () => ({ default: rawData }))
-      const { structure: sidebarData } = await import('./sidebar.js')
-
-      expect(sidebarData).toEqual(result)
-    })
-
-    it('Forwards tutorials', async () => {
-      const rawData = [
-        {
-          slug: 'item-name',
-          tutorials: {
-            katacoda: 'https://www.katacoda.com/dvc/courses/get-started'
-          }
-        }
-      ]
-      const result = [
-        {
-          label: 'Item Name',
-          path: '/item-name',
-          source: '/docs/item-name.md',
-          tutorials: {
-            katacoda: 'https://www.katacoda.com/dvc/courses/get-started'
-          },
           prev: undefined,
           next: undefined
         }
@@ -124,7 +92,6 @@ describe('normalizeSidebar', () => {
           label: 'Item Name',
           path: '/item-name',
           source: '/docs/item-name.md',
-          tutorials: {},
           prev: undefined,
           next: '/item-name/nested-item',
           children: [
@@ -132,7 +99,6 @@ describe('normalizeSidebar', () => {
               label: 'Nested Item',
               path: '/item-name/nested-item',
               source: '/docs/item-name/nested-item.md',
-              tutorials: {},
               prev: '/item-name',
               next: '/item-name/nested-item/subnested-item',
               children: [
@@ -140,7 +106,6 @@ describe('normalizeSidebar', () => {
                   label: 'Subnested Item',
                   path: '/item-name/nested-item/subnested-item',
                   source: '/docs/item-name/nested-item/subnested-item.md',
-                  tutorials: {},
                   prev: '/item-name/nested-item',
                   next: undefined
                 }
@@ -177,7 +142,6 @@ describe('normalizeSidebar', () => {
           path: '/first-item',
           source: '/docs/first-item.md',
           label: 'First Item',
-          tutorials: {},
           prev: undefined,
           next: '/first-item/nested-item-first',
           style: undefined,
@@ -187,7 +151,6 @@ describe('normalizeSidebar', () => {
               path: '/first-item/nested-item-first',
               source: '/docs/first-item/nested-item-first.md',
               label: 'Nested Item First',
-              tutorials: {},
               prev: '/first-item',
               next: '/first-item/nested-item-second',
               style: undefined,
@@ -197,7 +160,6 @@ describe('normalizeSidebar', () => {
               path: '/first-item/nested-item-second',
               source: '/docs/first-item/nested-item-second/index.md',
               label: 'Nested Item Second',
-              tutorials: {},
               prev: '/first-item/nested-item-first',
               next: '/first-item/nested-item-second/nested-nested-item',
               style: undefined,
@@ -208,7 +170,6 @@ describe('normalizeSidebar', () => {
                   source:
                     '/docs/first-item/nested-item-second/nested-nested-item.md',
                   label: 'Nested Nested Item',
-                  tutorials: {},
                   prev: '/first-item/nested-item-second',
                   next: '/second-item',
                   style: undefined,
@@ -222,7 +183,6 @@ describe('normalizeSidebar', () => {
           path: '/second-item',
           source: '/docs/second-item.md',
           label: 'Second Item',
-          tutorials: {},
           prev: '/first-item/nested-item-second/nested-nested-item',
           next: undefined,
           style: undefined,
@@ -246,7 +206,6 @@ describe('normalizeSidebar', () => {
           label: 'First Item',
           path: '/first-item',
           source: '/docs/first-item.md',
-          tutorials: {},
           prev: undefined,
           next: '/second-item'
         },
@@ -254,7 +213,6 @@ describe('normalizeSidebar', () => {
           label: 'Second Item',
           path: '/second-item',
           source: false,
-          tutorials: {},
           prev: '/first-item',
           next: '/second-item/nested-item',
           children: [
@@ -262,7 +220,6 @@ describe('normalizeSidebar', () => {
               label: 'Nested Item',
               path: '/second-item/nested-item',
               source: '/docs/second-item/nested-item.md',
-              tutorials: {},
               prev: '/first-item',
               next: undefined
             }
@@ -292,7 +249,6 @@ describe('normalizeSidebar', () => {
           label: 'First Item',
           path: '/first-item',
           source: '/docs/first-item.md',
-          tutorials: {},
           prev: undefined,
           next: '/second-item'
         },
@@ -300,7 +256,6 @@ describe('normalizeSidebar', () => {
           label: 'Second Item',
           path: '/second-item',
           source: false,
-          tutorials: {},
           prev: '/first-item',
           next: '/second-item/nested-item',
           children: [
@@ -308,7 +263,6 @@ describe('normalizeSidebar', () => {
               label: 'Nested Item',
               path: '/second-item/nested-item',
               source: false,
-              tutorials: {},
               prev: '/first-item',
               next: '/second-item/nested-item/subnested-item',
               children: [
@@ -316,7 +270,6 @@ describe('normalizeSidebar', () => {
                   label: 'Subnested Item',
                   path: '/second-item/nested-item/subnested-item',
                   source: '/docs/second-item/nested-item/subnested-item.md',
-                  tutorials: {},
                   prev: '/first-item',
                   next: undefined
                 }
@@ -372,7 +325,6 @@ describe('normalizeSidebar', () => {
         label: 'Item Name',
         path: '/item-name',
         source: '/docs/item-name.md',
-        tutorials: {},
         prev: undefined,
         next: undefined
       }
@@ -407,7 +359,6 @@ describe('normalizeSidebar', () => {
         label: 'Leaf Item',
         path: '/item/nested/subnested/leaf-item',
         source: '/docs/item/nested/subnested/leaf-item.md',
-        tutorials: {},
         prev: undefined,
         next: undefined
       }

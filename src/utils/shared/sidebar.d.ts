@@ -6,9 +6,6 @@ export interface ISidebarItem {
   next: string
   icon?: string
   style?: string
-  tutorials?: {
-    katacoda: string
-  }
   children?: ISidebarItem[]
 }
 
