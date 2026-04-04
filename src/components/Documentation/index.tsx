@@ -32,6 +32,7 @@ const Documentation: React.FC<IDocumentationProps> = ({
         prev={prev}
         next={next}
         githubLink={githubLink}
+        pagePath={path}
       />
       <RightPanel headings={headings} githubLink={githubLink} />
     </>

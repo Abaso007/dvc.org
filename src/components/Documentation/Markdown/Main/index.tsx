@@ -8,6 +8,7 @@ import {
   getPathWithSource
 } from '../../../../utils/shared/sidebar'
 import Link from '../../../Link'
+import CopyPageButton from '../../CopyPageButton'
 import * as sharedStyles from '../../styles.module.css'
 
 import * as styles from './styles.module.css'
@@ -18,13 +19,15 @@ interface IMainProps {
   githubLink: string
   prev?: string
   next?: string
+  pagePath?: string
 }
 
 const Main: React.FC<PropsWithChildren<IMainProps>> = ({
   children,
   prev,
   next,
-  githubLink
+  githubLink,
+  pagePath
 }) => {
   useArgsTargetFlash()
   useCustomYtEmbeds()
@@ -34,14 +37,17 @@ const Main: React.FC<PropsWithChildren<IMainProps>> = ({
 
   return (
     <div className={styles.content} id="markdown-root">
-      <Link
-        className={cn(sharedStyles.button, styles.githubLink)}
-        href={githubLink}
-        target="_blank"
-      >
-        <i className={cn(sharedStyles.buttonIcon, styles.githubIcon)} /> Edit on
-        GitHub
-      </Link>
+      <div className={styles.headerButtons}>
+        {pagePath && <CopyPageButton pagePath={pagePath} />}
+        <Link
+          className={cn(sharedStyles.button, styles.githubLink)}
+          href={githubLink}
+          target="_blank"
+        >
+          <i className={cn(sharedStyles.buttonIcon, styles.githubIcon)} /> Edit
+          on GitHub
+        </Link>
+      </div>
       <div className={cn('markdown-body', themeStyles.code)}>{children}</div>
       <div className={styles.navButtons}>
         {prev && prevItem?.label && (

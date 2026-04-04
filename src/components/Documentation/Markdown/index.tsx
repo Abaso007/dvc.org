@@ -27,18 +27,20 @@ interface IMarkdownProps {
   githubLink: string
   prev?: string
   next?: string
+  pagePath: string
 }
 
 const Markdown: React.FC<IMarkdownProps> = ({
   htmlAst,
   prev,
   next,
-  githubLink
+  githubLink,
+  pagePath
 }) => {
   const slugger = new Slugger()
   const patchedAst = patchHtmlAst(htmlAst)
   return (
-    <Main prev={prev} next={next} githubLink={githubLink}>
+    <Main prev={prev} next={next} githubLink={githubLink} pagePath={pagePath}>
       <TogglesProvider>{renderAst(slugger)(patchedAst)}</TogglesProvider>
     </Main>
   )

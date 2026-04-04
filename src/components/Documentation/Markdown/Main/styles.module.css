@@ -425,22 +425,27 @@
   background-color: var(--docs-content-bg);
 }
 
-.githubLink {
-  display: none;
+.headerButtons {
+  display: inline-flex;
   float: right;
-  margin: 5px 0 10px 10px;
-  z-index: 1;
+  gap: 8px;
+  align-items: center;
+  margin: 13px 0 10px 10px;
+  z-index: 10;
   position: relative;
-  color: var(--docs-button-text);
-  text-decoration: none;
 
   @media (width <= 1004px) {
     float: none;
     margin: 0 0 15px;
   }
+}
 
-  @media only screen and (width <= 1200px) {
-    display: inline-flex;
+.githubLink {
+  color: var(--docs-button-text);
+  text-decoration: none;
+
+  @media (width > 1200px) {
+    display: none;
   }
 
   &:hover,

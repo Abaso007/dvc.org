@@ -8,6 +8,7 @@ import postcssNested from 'postcss-nested'
 import './src/config/prismjs/dvc.js'
 import './src/config/prismjs/dvctable.js'
 import simpleLinkerTerms from './content/linked-terms.js'
+import createMarkdownMiddleware from './server/markdown.js'
 import redirectsMiddleware from './server/redirect.js'
 import customYoutubeTransformer from './src/config/custom-yt-embedder.js'
 import makeGitHubMarkdownCssUseThemeAttribute from './src/config/postcss-theme-attribute.js'
@@ -301,5 +302,6 @@ export default {
   jsxRuntime: 'automatic',
   developMiddleware: app => {
     app.use(redirectsMiddleware)
+    app.use(createMarkdownMiddleware())
   }
 }

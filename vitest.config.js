@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     environment: 'happy-dom',
     globals: true,
-    include: ['src/**/*.test.{js,ts,tsx}'],
+    include: ['src/**/*.test.{js,ts,tsx}', 'server/**/*.test.{js,ts}'],
     exclude: ['node_modules', '.cache', 'public'],
     setupFiles: ['src/test/setup.ts'],
     css: {

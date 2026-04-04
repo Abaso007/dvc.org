@@ -5,6 +5,7 @@ import { createProxyMiddleware } from 'http-proxy-middleware'
 import permissionsPolicy from 'permissions-policy'
 import serveHandler from 'serve-handler'
 
+import createMarkdownMiddleware from './markdown.js'
 import redirectsMiddleware from './redirect.js'
 
 const port = process.env.PORT || 3000
@@ -75,6 +76,10 @@ app.use(helmet(helmetOptions))
 const mustRevalidate =
   'public, max-age=0, must-revalidate, s-maxage=60, stale-while-revalidate=240'
 const cacheForever = 'public, max-age=31536000, immutable'
+const markdownMiddleware = createMarkdownMiddleware({
+  cacheControl: mustRevalidate
+})
+app.use(markdownMiddleware)
 const serveMiddleware = async (req, res) => {
   await serveHandler(req, res, {
     public: 'public',
