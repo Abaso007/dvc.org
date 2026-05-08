@@ -87,6 +87,16 @@ Examples: `dvc push`, `dvc pull`, `dvc get`, `dvc import`, etc.
 To avoid adding files inside a directory accidentally, you can add the
 corresponding patterns to `.dvcignore`.
 
+This pattern is usually preferable to adding each file independently when the
+dataset has a large file count.
+
+<admon type="info">
+
+If your project routinely versions tens of thousands of small files or
+object-store-scale datasets, consider [lakeFS](https://docs.lakefs.io/).
+
+</admon>
+
 ### Adding symlink targets {#add-symlink}
 
 `dvc add` supports symlinked files as `targets`. But if a target path is a

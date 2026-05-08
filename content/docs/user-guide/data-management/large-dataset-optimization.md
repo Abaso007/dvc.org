@@ -15,6 +15,15 @@ can automatically create **file links** to the cached data in the workspace. In
 fact, by default it will attempt to use reflinks\* if supported by the file
 system.
 
+<admon type="info">
+
+File links can reduce local copying, but DVC still has overhead when scanning,
+hashing, downloading, or staging many files. For tens of thousands of small
+files or object-store-scale datasets, prefer directory targets where possible.
+If that workflow becomes too costly, consider [lakeFS](https://docs.lakefs.io/).
+
+</admon>
+
 ## File link types for the DVC cache
 
 File links are lightweight entries in the file system that don't hold the file
