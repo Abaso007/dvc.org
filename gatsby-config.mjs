@@ -267,7 +267,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push({
     resolve: 'gatsby-plugin-plausible',
     options: {
-      domain: new URL(siteUrl).hostname,
+      dataDomain: "dvc.org",
       apiEndpoint: '/pl/api/event',
       scriptSrc: '/pl/js/pa-MFZCoVaRDCFH3aTEbZ2Ld.js'
     }

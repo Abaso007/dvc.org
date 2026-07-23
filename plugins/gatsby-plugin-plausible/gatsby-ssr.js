@@ -1,12 +1,12 @@
 export const onRenderBody = (
   { setHeadComponents },
-  { domain, apiEndpoint, scriptSrc }
+  { dataDomain, apiEndpoint, scriptSrc }
 ) => {
   setHeadComponents([
     <script
       key="plausible"
       async
-      data-domain={domain}
+      data-domain={dataDomain}
       data-api={apiEndpoint}
       src={scriptSrc}
     />,
